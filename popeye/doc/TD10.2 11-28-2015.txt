@@ -1,0 +1,28 @@
+Test Case ID:TD 10.2
+Created By:Katie Bentley 10-16-2015
+Run By:Ryan Vazquez 11-28-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  -Check the formating of the graphs 
+  
+Related Requirements
+  -6.2.1.3
+  
+Prerequisites
+  -Popye opens
+  -Popye plots 
+  
+Test Procedures
+1.Open Popye
+2.Click Exectute on all of the text fields
+
+Test Data/Test Notes
+Formating/spacing of some graphs was off
+
+Expected Result
+ -All graphs display properly formated 
+ 
+Actual Result
+ -Formating/spacing of some graphs was off

@@ -1,0 +1,9 @@
+{
+  "name": "popye",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^1.4.2",
+    "shelljs": "^0.5.3"
+  }
+}

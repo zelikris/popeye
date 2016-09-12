@@ -1,0 +1,30 @@
+Test Case ID:TD4.2.1
+Created By: Ryan Vazquez  9/9/15
+Run By: Ryan Vazquez 9/30
+Requirement: 4.2.1
+Test Result: PASSED
+
+Test Case Summary 
+  - Test if Popye text is editable
+Related Requirements
+
+Prerequisites
+  - Popye Opens
+Test Procedures 
+  - Open interactive Section
+  - Edit lines
+  - delete lines
+  - add lines
+  - change values
+
+Test Data/Test Notes 
+  PASSED
+
+Expected Result 
+  - Can access and view interactive section with no errors
+  - Can edit text in interactive section
+
+Actual Result
+  PASSED
+
+

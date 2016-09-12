@@ -1,0 +1,28 @@
+Test Case ID:TD 10.5
+Created By:Katie Bentley 11-18-2015
+Run By:Katie Ryan Vazquez 11-28-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  -Check to see if the graphs execute if values are changes 
+  
+Related Requirements
+  -6.2.1.3
+  
+Prerequisites
+  -Popye opens
+  -Popye plots 
+  
+Test Procedures
+1.Open Popye
+2.Click Exectute on all of the text fields
+
+Test Data/Test Notes
+The graphs image did not change with the addition of making the graphs embedded into the page 
+
+Expected Result
+ -The graphs would change with the code 
+ 
+Actual Result
+ -The graphs did not change

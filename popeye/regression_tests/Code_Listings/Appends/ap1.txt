@@ -1,0 +1,9 @@
+import shutil
+filexx = open('plotxx1p.txt', 'w')
+for i in range(0, len(x)):
+    for j in range(0, len(xx[0])):
+        st = "  %0.8f\n" % xx[i][j]
+        filexx.write(st)
+filexx.close()
+shutil.copy('plotxx8p.txt', 'Code_Listings/Data')
+os.remove('plotxx8p.txt')

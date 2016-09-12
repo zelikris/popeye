@@ -1,0 +1,39 @@
+Test Case ID:TD 10.1
+Created By:Katie Bentley 10-01-2015
+Run By:Katie Bentley 10-01-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  -Check to see if all buttons on the webpage works 
+  
+Related Requirements
+  -N/A
+  
+Prerequisites
+  -Popye opens 
+  
+Test Procedures
+ 1. Open up the webpage
+ 2.Go to Table of Contents 
+ 3. Click on Index
+ 4.Click on Module Index
+ 5.Click on Search Page
+ 6. Click on view page source
+ 7. Click on Next 
+ 8. Click on all Chapter headings 
+
+Test Data/Test Notes
+ -Example error found:
+     Page not found (404)
+       Request Method:GET
+             Request URL:http://127.0.0.1:8000/static/genindex.html
+             'genindex.html' could not be found
+     You're seeing this error because you have DEBUG = True in your Django settings file. Change that to False, and Django will display a standard 404 page.
+
+Expected Result
+ -All buttons work 
+ 
+Actual Result
+ -Index, Module Index, Search Page, and view page source give an error message 
+

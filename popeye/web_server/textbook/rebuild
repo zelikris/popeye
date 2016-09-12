@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm -rf static/sphinx
+rm -rf *.pyc
+rm -rf static/*.pyc
+
+sphinx-build sphinx-src static/sphinx
+cd static
+python insert-listings.py

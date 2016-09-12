@@ -1,0 +1,30 @@
+Test Case ID:TD 10.4
+Created By:Katie Bentley 11-02-2015
+Run By:Katie Bentley 11-30-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  -Check the formating of Titles 
+  
+Related Requirements
+ N/A
+  
+Prerequisites
+  -Popye opens
+  -Popye plots 
+  
+Test Procedures
+1.Open Popye
+
+Test Data/Test Notes
+Chapter 3 and Chapter 5 are not bolded like the other chapters in the index 
+
+Expected Result
+ -All titles display properly formated 
+ 
+Actual Result
+ -3 and 5 are not displayed properly formated 
+
+    API Training Shop Blog About 
+

@@ -1,0 +1,34 @@
+Test Case ID: TD6.2.1.3
+Created By: Dana Bazazeh
+Run By: Dana Bazazeh 10/08/15
+Requirement: 6.2.1.3
+Test Result: PASSED
+
+Test Case Summary 
+- Test plotting and vector manipulation functionality 
+
+Related Requirements
+  - 
+Prerequisites
+  - 6.2.1.1 & 6.2.1.2
+  
+Test Procedures 
+  - Open interactive page that contains plotting/vector manipulation features.
+  - Draw vector plot
+  - manipulate plot 
+  - check if plot changes with vector attributes
+  
+Test Data/Test Notes
+  - Pulled file  from main branch on 10/8
+  - Ran server
+  - went to subchapter 11.1
+  - executed plot and subplot function
+  - checked terminal for result
+  - result graphs were saved to local machine in form of PDF
+ 	 
+
+Expected Result 
+  - Graphs are plotted and vectors are drawn correctly and dynamically.
+  
+Actual Result
+  - Plotted graphs were saved to local machine and matched expected results.

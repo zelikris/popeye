@@ -1,0 +1,25 @@
+Test Case ID:TD4.2.3
+Created By: Ryan Vazquez  9/9/15
+Run By: Ryan Vazquez 10/2
+Requirement: 4.2.3
+Test Result: PASSED
+
+Test Case Summary 
+  - Interactive text can reset to original
+Related Requirements
+
+Prerequisites
+  - 4.2.1, 4.2.2
+Test Procedures 
+  - load interactive text section
+  - execute text and check output
+  - change text and execute
+  - reset text and execute
+  - check if output after reset same as original
+
+Test Data/Test Notes 
+  - PASSED
+Expected Result 
+  - original and reset outputs match
+Actual Result
+  - Text reverted to original when revert button was pressed

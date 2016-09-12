@@ -1,0 +1,29 @@
+Test Case ID:TD5.2.3
+Created By: Dana Bazazeh 
+Run By: Dana Bazazeh 9-30-2015
+Requirement: 5.2.3
+Test Result: Failed
+
+
+Test Case Summary 
+  - Test whether a figure windows are opened
+Related Requirements
+  - book opens and readable
+
+Prerequisites
+  - 
+Test Procedures 
+- Execute a plot function
+- View plot in a figure either embedded in page or in popout window
+- figure should be correct, clear and readable
+
+Test Data/Test Notes 
+  - pulled from infrastructure on 9/30 at beginning of class
+  - ran server and went to http://127.0.0.1:8000/static/docs/index.html
+  - went to ch 11
+  - none of the plot figures are displayed
+
+Expected Result 
+  - figure should appear and must be correct, clear and readable
+Actual Result
+  - Figures plot are not displayed in pop up, only saved as PDF to local.

@@ -1,0 +1,28 @@
+Test Case ID:TD 10.4
+Created By:Katie Bentley 11-02-2015
+Run By:Katie Bentley 11-23-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  -Check the formating of Titles 
+  
+Related Requirements
+ N/A
+  
+Prerequisites
+  -Popye opens
+  -Popye plots 
+  
+Test Procedures
+1.Open Popye
+
+Test Data/Test Notes
+Chapters are still not in order and Chapter 12 is not in all caps like the rest, 
+Five not fixed 
+
+Expected Result
+ -All titles display properly formated 
+ 
+Actual Result
+ -12 and 5 are not displayed properly formated 

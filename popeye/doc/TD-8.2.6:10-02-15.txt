@@ -1,0 +1,29 @@
+Test Case ID:TD8.2.6
+Created By: Dana Bazazeh
+Run By: Dana Bazazeh 10/02/15
+Requirement: 8.2.6
+Test Result: FAILED
+
+Test Case Summary 
+  - Test whether the file system contains all book chapters
+Related Requirements
+  - 4.2.1
+Prerequisites
+  - 8.2.1 & 8.2.2
+Test Procedures 
+-Open file system
+-create a list of all chapters found in system
+-compare list of chapters with actual book chapters
+-make sure every chapter is listed
+
+
+Test Data/Test Notes 
+- Pulled file  from infrastructure team on 10/2
+- Ran server
+- went to index page
+- contains 1 chapter (chapter 11)
+
+Expected Result 
+  - All book chapters are stored in the File System
+Actual Result
+  - Book contains only 1 chapter with sub sections

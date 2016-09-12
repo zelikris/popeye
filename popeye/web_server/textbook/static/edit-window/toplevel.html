@@ -1,0 +1,59 @@
+<script>
+var origTextDict = {};
+
+var importsDict = {};
+
+function Send(editor, results) {
+    var reqstr = editor.getValue();
+    var imports = importsDict[editor.container.id];
+    reqstr = imports + reqstr;
+    console.log(reqstr);
+    var exec_url = "http://localhost:3300";
+    var post_data = {};
+    post_data["code"] = reqstr;
+    $.ajax({
+        type: "POST",
+        url: exec_url,
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(post_data),
+        success:function(data){
+            var jsonthing = JSON.parse(data);
+            var stdout = jsonthing['stdout'];
+            filepath = jsonthing['filepath'];
+            console.log(jsonthing['isfigure']);
+            if (jsonthing['isfigure'] == "True")
+            {
+                // the old way, pops up a separate window
+                //window.open(exec_url
+                //        + filepath, 'new', "height=600,width=600");
+                // the new way, changes the src for the embedded img
+                var idToChange = "img" + String(1 + Number(editor.container.id.substring(6)));
+                if (document.getElementById(idToChange) != null) {
+                    document.getElementById(idToChange).src
+                        = exec_url + filepath, 'new', "height=338,width=500";
+                } else {
+                    window.open(exec_url + filepath, 'new', "height=600,width=600");
+                }
+            }
+            results.setValue(stdout ,1);
+        }
+    })
+};
+function Revert(editor) {
+    editor_id = editor.container.id;
+    editor.setValue(origTextDict[editor_id]);
+    editor.clearSelection();
+};
+// function Save(editor) {
+//     var tempDoc = window.document.createElement('tempDoc');
+//     var text = editor.getValue();
+//     a.href = window.URL.createObjectURL(new Blob(['Code,' + text], {type: 'text'}));
+//     a.download = 'code.txt';
+//     // Append anchor to body.
+//     document.body.appendChild(a)
+//     a.click();
+//     // Remove anchor from body
+//     document.body.removeChild(a)
+// }
+</script>

@@ -1,0 +1,2165 @@
+"Combined Listings" 
+        % ---> File: Listing_02_01.m
+    % Listing 02.01 Script to solve for the hypotenuse
+ 1. clear
+ 2. clc
+ 3. A = 3; % the first side of a triangle
+ 4. B = 4; % the second side of a triangle
+ 5. hypSq = A^2 + B^2; % the square of the
+    % hypotenuse
+ 6. H = sqrt(hypSq) % the answer
+        % ---> File: Listing_02_02.m
+    % Listing 02.02 Script to compute the spacecraft's velocity (Part 1)
+ 1. cmPerInch = 2.54; % general knowledge
+ 2. inchesPerFt = 12; % general knowledge
+ 3. metersPerCm = 1/100; % general knowledge
+ 4. MetersPerFt = metersPerCm * cmPerInch * inchesPerFt;
+ 5. startFt = 25000; % ft - given
+ 6. startM = startFt * MetersPerFt
+        % ---> File: Listing_02_03.m
+    % Listing 02.03 Script to complete the computation of the spacecraft's velocity
+ 1. g = 9.81 % m/sec^2
+ 2. top = 100 % km - given
+ 3. s = (top*1000) - startM % m
+ 4. initialV = (2*g*s)^0.5 % the final answer
+        % ---> File: Listing_03_01.m
+    % Listing 03.01 Vector indexing script
+ 1. A = [2 5 7 1 3 4]
+ 2. odds = 1:2:length(A)
+ 3. disp('odd values of A using predefined indices')
+ 4. A(odds)
+ 5. disp('odd values of A using anonymous indices')
+ 6. A(1:2:end)
+ 7. disp('put evens into odd values in a new array')
+ 8. B(odds) = A(2:2:end)
+ 9. disp('set the even values in B to 99')
+10. B(2:2:end) = 99
+11. disp('find the small values in A')
+12. small = A < 4
+13. disp('add 10 to the small values')
+14. A(small) = A(small) + 10
+15. disp('this can be done in one ugly operation')
+16. A(A < 10) = A(A <10) + 10
+        % ---> File: Listing_03_02.m
+    % Listing 03.02 Script to solve vector problems
+ 1. PA = [0 1 1]
+ 2. PB = [1 1 0]
+ 3. P = [2 1 1]
+ 4. M = [4 0 1]
+    % find the resultant of PA and PB
+ 5. PC = PA + PB
+    % find the unit vector in the direction of PC
+ 6. mag = sqrt(sum(PC.^2))
+ 7. unit_vector = PC/mag
+    % find the moment of the force PC about M
+    % this is the cross product of MP and PC
+ 8. MP = P - M
+ 9. moment = cross( MP, PC )
+        % ---> File: Listing_03_03.m
+    % Listing 03.03 Array manipulation script
+ 1. A = [2 5 7 3
+ 2. 1 3 4 2]
+ 3. [rows, cols] = size(A)
+ 4. odds = 1:2:cols
+ 5. disp('odd columns of A using predefined indices')
+ 6. A(:, odds)
+ 7. disp('odd columns of A using anonymous indices')
+ 8. A(end, 1:2:end)
+ 9. disp('put evens into odd values in a new array')
+10. B(:, odds) = A(:, 2:2:end)
+11. disp('set the even values in B to 99')
+12. B(1, 2:2:end) = 99
+13. disp('find the small values in A')
+14. small = A < 4
+15. disp('add 10 to the small values')
+16. A(small) = A(small) + 10
+17. disp('this can be done in one ugly operation')
+18. A(A < 4) = A(A < 4) + 10
+19. small_index = find(small)
+20. A(small_index) = A(small_index) + 100
+        % ---> File: Listing_03_04.m
+    % Listing 03.04 Script to compute total soil
+    % soil depth data for each square produced by the survey
+ 1. dpth = [8 8 9 8 8 8 8 8 7 8 7 7 7 7 8 8 8 7
+ 2. 8 8 8 8 8 8 8 7 7 7 7 7 8 7 8 8 8 7
+ 3. 8 8 8 8 7 7 8 7 8 8 8 8 8 7 8 8 8 8
+ 4. 7 7 7 8 7 8 8 8 8 8 8 8 7 6 7 7 7 7
+ 5. 8 8 8 8 8 8 8 8 7 7 7 7 7 6 6 7 7 8
+ 6. 8 7 7 8 7 7 8 7 7 7 7 7 7 7 7 7 7 8
+ 7. 9 8 8 9 8 7 8 7 7 7 7 7 6 7 6 7 7 8
+ 8. 8 8 8 9 9 8 8 8 7 6 6 6 6 7 7 8 7 8
+ 9. 9 8 8 7 7 7 7 7 7 6 6 7 7 7 8 8 7 8
+10. 9 8 8 7 7 7 6 7 7 6 6 8 8 8 9 9 7 8
+11. 9 9 8 8 8 8 7 7 7 7 7 8 8 9 9 9 8 8
+12. 9 8 8 7 7 8 7 7 7 7 8 8 9 9 9 8 7 8];
+    % estimated proportion of each square that should be excavated
+13. area = [1 1 1 1 1 1 1 1 1 1 .3 0 0 0 0 0 0 0
+14. 1 1 1 1 1 1 1 1 1 1 .7 0 0 0 0 0 0 0
+15. 1 1 1 1 1 1 1 1 1 1 1 .8 .4 0 0 0 0 0
+16. 1 1 1 1 1 1 1 1 1 1 1 1 1 .8 .3 0 0 0
+17. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 .7 .2 0 0
+18. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 .6 0 0
+19. 0 0 0 .7 1 1 1 1 1 1 1 1 1 1 1 .8 0 0
+20. 0 0 0 .7 1 1 1 1 1 1 1 1 1 1 1 .7 0 0
+21. 0 0 0 .4 1 1 1 1 1 1 1 1 1 1 1 .6 0 0
+22. 0 0 0 .1 .8 1 1 1 1 1 1 1 1 1 1 1 .4 0
+23. 0 0 0 0 .2 .7 1 1 1 1 1 1 1 1 1 1 .9 .1
+24. 0 0 0 0 0 0 .4 .8 .9 1 1 1 1 1 1 1 1 .6];
+25. square_volume = dpth .* area;
+26. total_soil = sum(sum(square_volume))
+        % ---> File: Listing_04_01.m
+    % Listing 04.01 if statement example
+ 1. if day == 7 % Saturday
+ 2. state = 'weekend'
+ 3. elseif day == 1 % Sunday
+ 4. state = 'weekend'
+ 5. else
+ 6. state = 'weekday'
+ 7. end
+        % ---> File: Listing_04_02.m
+    % Listing 04.02 Script with if statements
+ 1. grade = input('what grade? ');
+ 2. if grade >= 90
+ 3.     letter = 'A'
+ 4. elseif grade >= 80
+ 5.     letter = 'B'
+ 6. elseif grade >= 70
+ 7.     letter = 'C'
+ 8. elseif grade >= 60
+ 9.     letter = 'D'
+10. else
+11.     letter = 'F'
+12. end
+        % ---> File: Listing_04_03.m
+    % Listing 04.03 The if statement with a logical vector
+ 1. A = [true true false]
+ 2. if A
+    % will not execute
+ 3. end
+ 4. A(3) = true;
+ 5. if A
+    % will execute
+ 6. end
+        % ---> File: Listing_04_04.m
+    % Listing 04.04 Example of a switch statement
+ 1. switch month
+ 2.    case {9, 4, 6, 11}
+       % Sept, Apr, June, Nov
+ 3.        days = 30;
+ 4.     case 2 % Feb
+ 5.        if leapYear
+ 6.            days = 29;
+ 7.        else
+ 8.            days = 28;
+ 9.        end
+10.     case {1, 3, 5, 7, 8, 10, 12}
+            % other months
+11.         days = 31;
+12.     otherwise
+13.         error('bad month index')
+14. end
+        % ---> File: Listing_04_05.m
+    % Listing 04.05 Example of a for statement
+ 1. A = [6 12 6 91 13 6] % initial vector
+ 2. theMax = A(1); % set initial max value
+ 3. for x = A % iterate through A
+ 4.     if x > theMax % test each element
+ 5.         theMax = x;
+ 6.     end
+ 7. end
+ 8. fprintf('max(A) is %d\n', theMax);
+        % ---> File: Listing_04_06.m
+    % Listing 04.06 for statement using indexing
+ 1. A = floor(rand(1,10)*100)
+ 2. theMax = A(1);
+ 3. theIndex = 1;
+ 4. for index = 1:length(A)
+ 5.     x = A(index);
+ 6.     if x > theMax
+ 7.         theMax = x;
+ 8.         theIndex = index;
+ 9.     end
+10. end
+11. fprintf('the max value in A is %d at %d\n', ...
+12.     theMax, theIndex);
+        % ---> File: Listing_04_07.m
+    % Listing 04.07 while statement example
+ 1. A = floor(rand(1,10)*100)
+ 2. theMax = A(1);
+ 3. theIndex = 1;
+ 4. index = 1;
+ 5. while index <= length(A)
+ 6.     x = A(index);
+ 7.     if x > theMax
+ 8.        theMax = x;
+ 9.        theIndex = index;
+10.     end
+11.     index = index + 1;
+12. end
+13. fprintf('the max value in A is %d at %d\n', ...
+14.                                         theMax, theIndex);
+        % ---> File: Listing_04_08.m
+ 1. clear
+ 2. clc
+ 3. close all
+    % Listing 04.08 Loop-and-a-half example
+ 4. R = 1;
+ 5. while R > 0
+ 6.     R = input('Enter a radius: ');
+ 7.     if R > 0
+ 8.         area = pi * R^2;
+ 9.         circum = 2 * pi * R;
+10.         fprintf('area = %f; circum = %f\n', ...
+11.             area, circum);
+12.     end
+13. end
+        % ---> File: Listing_04_09.m
+    % Listing 04.09 Script to compute liquid levels
+ 1. another_tank = true;
+ 2. while another_tank
+ 3.     H = input('Overall tank height: ');
+ 4.     r = input('tank radius: ');
+ 5.     more_heights = true;
+ 6.     while more_heights
+ 7.         h = input('liquid height: ');
+ 8.         if h < r
+ 9.             v = (1/3)*pi*h.^2.*(3*r-h);
+10.         elseif h < H-r
+11.             v = (2/3)*pi*r^3 + pi*r^2*(h-r);
+12.         elseif h <= H
+13.             v = (4/3)*pi*r^3 + pi*r^2*(H-2*r) ...
+14.                 - (1/3)*pi*(H-h)^2*(3*r-H+h);
+15.         else
+16.             disp('liquid level too high')
+17.             continue
+18.         end
+19.         fprintf( ...
+20.             'rad %0.2f ht %0.2f level %0.2f vol %0.2f\n', ...
+21.             r, H, h, v);
+22.         more_heights = input('more levels? (y/n)','s')=='y';
+23.     end
+24.     another_tank = input('another tank? (y/n)','s')=='y';
+25. end
+        % ---> File: Listing_05_01.m
+    % Listing 5.1 - cylinder function
+ 1. function volume = cylinder(height, radius)
+    % function to compute the volume of a cylinder
+    % volume = cylinder(height, radius)
+ 2.     base = pi * radius^2
+ 3.     volume = base * height
+ 4. end
+        % ---> File: Listing_05_02.m
+    % Listing 05.02 cylinder function with multiple results
+ 1. function [area, volume] = cylinder(height, radius)
+    % function to compute the area and volume of a cylinder
+    % usage: [area, volume]=cylinder(height, radius)
+ 2.     base = pi .* radius.^2;
+ 3.     volume = base .* height;
+ 4.     area = 2 * pi * radius .* height + 2 * base;
+ 5. end
+        % ---> File: Listing_05_03.m
+    % Listing 05.03 Volume and area of a disk
+ 1. h = 1:5; % set a range of disk thicknesses
+ 2. R = 25;
+ 3. r = 3;
+ 4. [Area Vol] = cylinder(h, R) % dimensions of large disk
+ 5. [area vol] = cylinder(h, r) % dimensions of the hole
+    % compute remaining volume
+ 6. Vol = Vol - 8*vol
+    % the wetted area is a little messier. If we total the
+    % large disk area and the areas of the holes, we get the
+    % wetted area of the curved edges inside and out.
+    % However, for each hole, the top and bottom areas have
+    % been included not only in the top and bottom of the big
+    % disk, but also as the contributions of each hole.
+    % From the sum of the top areas, we therefore have to
+    % remove 32 times the hole top area
+ 7. Area = Area + 8*(area - 2*2*pi*r.^2)
+        % ---> File: Listing_06_01.m
+    % Listing 06.01 Encryption exercise
+ 1. disp('original text')
+ 2. txt = ['For example, consider the following:' 13 ...
+ 3. 'A = [4.7 1321454.47 4.8];' 13 ...
+ 4. 'index = 1;' 13 ...
+ 5. 'v = ''values'';' 13 ...
+ 6. 'str = sprintf(''%8s of A(%d) are \t%8.3f ' 13 ...
+ 7. ' v, index, A(index,1) ' 13 ...
+ 8. 'str = ' 13 ...
+ 9. ' values of A(1) are 4.700' 13 ...
+10. 'The first conversion, ''%8s'', took the value' ...
+11. ' of the first ' ...
+12. 'parameter, v, allowed 8 spaces. ' 13 ]
+    % % encryption section
+13. rand('state', 123456)
+14. loch = 33;
+15. hich = 126;
+16. range = hich+1-loch;
+17. rn = floor( range * rand(1, length(txt) ) );
+18. change = (txt>=loch) & (txt<=hich);
+19. enc = txt;
+20. enc(change) = enc(change) + rn(change);
+21. enc(enc > hich) = enc(enc > hich) - range;
+22. disp('encrypted text')
+23. encrypt = char(enc)
+    % % good decryption
+24. rand('state', 123456);
+25. rn = floor( range * rand(1, length(txt) ) );
+26. change = (encrypt>=loch) & (encrypt<=hich);
+27. dec = encrypt;
+28. dec(change) = dec(change) - rn(change) + range;
+29. dec(dec > hich) = dec(dec > hich) - range;
+30. disp('good decrypt');
+31. decrypt = char(dec)
+    % % bad seed
+32. rand('seed', 123457);
+33. rn = floor( range * rand(1, length(txt) ) );
+34. change = (encrypt>=loch) & (encrypt<=hich);
+35. dec = encrypt;
+36. dec(change) = dec(change) - rn(change) + range;
+37. dec(dec > hich) = dec(dec > hich) - range;
+38. disp('decrypt with bad seed')
+39. decrypt = char(dec)
+    % % different generator
+40. rand('seed', 123456)
+41. rn = mod(floor( range * abs(randn(1, length(txt) ))/10 ),  ...
+42.       range);
+43. change = (encrypt>=loch) & (encrypt<=hich);
+44. dec = encrypt;
+45. dec(change) = dec(change) - rn(change) + range;
+46. dec(dec > hich) = dec(dec > hich) - range;
+47. disp('decrypt with wrong generator')
+48. decrypt = char(dec)
+        % ---> File: Listing_07_01.m
+    % Listing 07.01 Using cell arrays of parameters
+ 1. A = 4;
+ 2. B = 6;
+ 3. C = 5;
+ 4. N = largest(A, B, C)
+ 5. params = { 4, 6, 5 };
+ 6. N = largest(params{1:3})
+        % ---> File: Listing_07_02.m
+    % Listing 07.02 Cell array processing example
+ 1. function ans = totalNums(ca)
+    % count the numbers in a cell array
+ 2. ans = 0 ;
+ 3. for in = 1 :length(ca)
+ 4.     item = ca{i} ; % extract the item
+ 5.     if isnumeric(item) % check if a vector
+ 6.         ans = ans + prod(size(item));
+ 7.     end
+ 8. end
+        % ---> File: Listing_07_03.m
+    % Listing 07.03 Constructor for a CD structure
+ 1. function ans = makeCD(gn, ar, ti, yr, st, pr)
+    % integrate CD data into a structure
+ 2. ans.genre = gn ;
+ 3. ans.artist = ar ;
+ 4. ans.title = ti;
+ 5. ans.year = yr;
+ 6. ans.stars = st;
+ 7. ans.price = pr;
+        % ---> File: Listing_07_04.m
+    % Listing 07.04 Building a structure array using struct(...)
+ 1. genres = {'Blues', 'Classical', 'Country' };
+ 2. artists = {'Clapton, Eric', 'Bocelli, Andrea', 'Twain, Shania' };
+ 3. years = { 2004, 2004, 2004 };
+ 4. stars = { 2, 4.6, 3.9 };
+ 5. prices = { 18.95, 14.89, 13.49 };
+ 6. cds = struct( 'genre', genres, ...
+ 7.               'artist', artists, ...
+ 8.               'year', years, ...
+ 9.               'stars', stars, ...
+10.               'price',  prices)
+        % ---> File: Listing_07_05.m
+    % Listing 07.05 Building a structure array using a custom constructor
+    % extracts from http://www.cduniverse.com/ 12/30/04
+ 1. cds(1) = makeCD('Blues', 'Clapton, Eric', ...
+ 2. 'Sessions For Robert J', 2004, 2, 18.95 );
+ 3. cds(2) = makeCD('Classical', ...
+ 4. 'Bocelli, Andrea', 'Andrea', 2004, 4.6, 14.89 );
+ 5. cds(3) = makeCD( 'Country', 'Twain, Shania', ...
+ 6. 'Greatest Hits', 2004, 3.9, 13.49 );
+ 7. cds(4) = makeCD( 'Latin', 'Trevi, Gloria', ...
+ 8. 'Como Nace El Universo', 2004, 5, 12.15 );
+ 9. cds(5) = makeCD( 'Rock/Pop', 'Ludacris', ...
+10. 'The Red Light District', 2004, 4, 13.49 );
+11. cds(6) = makeCD( 'R & B', '2Pac', ...
+12. 'Loyal To The Game', 2004, 3.9, 13.49 );
+13. cds(7) = makeCD( 'Rap', 'Eminem', ...
+14. 'Encore', 2004, 3.5, 15.75 );
+15. cds(8) = makeCD( 'Heavy Metal', 'Rammstein', ...
+16. 'Reise, Reise', 2004, 4.2, 12.65 )
+        % ---> File: Listing_07_06.m
+    % Listing 07.06 Connectivity of a structure
+ 1. data(1) = beam('A-1', 0.866, 0.5, ...
+ 2.            {'A','A-2','A-3','D-1'} );
+ 3. data(2) = beam('A-2', 0, 1, ...
+ 4.            {'A','A-3','B-1','B-2'} );
+ 5. data(3) = beam('A-3', 0.866, 1.5, ...
+ 6.            {'A-1','A-2','B-1','D-1'} );
+ 7. data(4) = beam('B-1', 0.866, 2.5, ...
+ 8.            {'A-2','A-3','B-2','B-3','D-1','D-2'} );
+ 9. data(5) = beam('B-2', 0, 3, ...
+10.            {'A-2','A-3','B-1','B-3','C-1','C-2'} );
+11. data(6) = beam('B-3', 0.866, 3.5, ...
+12.            {'B-1','B-2','C-1','C-2','D-1','D-2'} );
+13. data(7) = beam('C-1', 0.866, 4.5, ...
+14.            {'B-2','B-3','C-2','C-3','D-2'} );
+15. data(8) = beam('C-2', 0, 5, ...
+16.            {'B-2','B-3','C-1','C-3','C'} );
+17. data(9) = beam('C-3', 0.866, 5.5, ...
+18.            {'C-1','C-2','D-2','C'} );
+19. data(10) = beam('D-1', 1.732, 2, ...
+20.            {'A-1','A-3','B-1','B-3','D-2'} );
+21. data(11) = beam('D-2', 1.732, 4, ...
+22.            {'B-1','B-3','C-1','C-3','D-1'} )
+23. conn = 'A';
+24. clist = {conn};
+25. while true
+26.     index = 0;
+        % find all the beams connected to conn
+27.     for in = 1:length(data)
+28.         str = data(in);
+29.         if touches(str, conn)
+30.             index = index + 1;
+31.             found(index) = str;
+32.         end
+33.     end  
+        % eliminate those already connected
+34.     for jn = index:-1:1
+35.         if ison(found(jn).name, clist)
+36.             found(jn) = [];
+37.         else
+38.             clist = [clist {found(jn).name}];
+39.         end
+40.     end
+41.     if length(found) > 0
+42.         conn = nextconn( found, clist );
+43.     else
+44.         break;
+45.     end
+46. end
+47. disp('the order of assembly is:')
+48. disp(clist)
+        % ---> File: Listing_07_07.m
+    % Listing 07.07 Support functions
+ 1. function ans = beam( nm, xp, yp, conn )
+    % construct a beam structure with fields:
+    % name - beam name
+    % xp, yp - coordinates of its centroid
+    % conn - cell array - names of adjacent beams
+    % useage: ans = beam( nm, xp, yp, conn )
+ 2.     ans.name = nm;
+ 3.     ans.pos = [xp, yp];
+ 4.     ans.connect = conn;
+ 5. end
+ 6. function res = touches(beam, conn)
+    % does the beam touch this connecting point?
+    % usage: res = touches(beam, conn)
+ 7.     res = false;
+ 8.     for in = 1:length(beam.connect)
+ 9.         item = beam.connect{in};
+10.         if strcmp(item,conn)
+11.             res = true; break;
+12.         end
+13.     end
+14. end
+15. function res = ison( nm, cl )
+    % is this beam on the connection list,
+    % a cell array of beam names
+    % usage: res = ison( beam, cl )
+16.     res = false;
+17.     for in = 1:length(cl)
+18.         item = cl{in};
+19.         if strcmp(item, nm)
+20.             res = true; break;
+21.         end
+22.     end
+23. end
+24. function nm = nextconn( fnd, cl )
+    % find a connection name among
+    % those found not already connected
+    % usage: nm = nextconn( fnd, cl )
+25.     for in = 1:length(fnd)
+26.         item = fnd(in);
+27.         cn = item.connect;
+28.         for jn = 1:length(cn)
+29.             nm = cn{jn};
+30.             if ~ison(nm, cl)
+31.                 break;
+32.             end
+33.         end
+34.     end
+35. end
+        % ---> File: Listing_08_01.m
+    % Listing 08.01 Script to list a text file
+ 1. fn = input( 'file name: ', 's' );
+ 2. fh = fopen( fn, 'r' );
+ 3. ln = '';
+ 4. while ischar( ln )
+ 5.     ln = fgets( fh );
+ 6.     if ischar( ln )
+ 7.         fprintf( ln );
+ 8.     end
+ 9. end
+10. fclose( fh );
+        % ---> File: Listing_08_02.m
+    % Listing 08.02 Listing a file using tokens
+ 1. fn = input( 'file name: ' , 's' );
+ 2. fh = fopen( fn, 'r' );
+ 3. ln = '';
+ 4. while ischar( ln )
+ 5.     ln = fgetl( fh );
+ 6.     if ischar( ln )
+ 7.         ca = [];
+ 8.         while ~isempty( ln )
+ 9.             [tk, ln] = strtok( ln );
+10.             ca = [ca {tk}];
+11.         end
+12.         disp( ca );
+13.     end
+14. end
+15. fclose( fh );
+        % ---> File: Listing_08_03.m
+    % Listing 08.03 Script to copy a text file
+ 1. ifn = input( 'input file name: ', 's' );
+ 2. ofn = input('output file name: ', 's' );
+ 3. ih = fopen( ifn, 'r' );
+ 4. oh = fopen( ofn, 'w' );
+ 5. ln = '';
+ 6. while ischar( ln )
+ 7.     ln = fgets( ih );
+ 8.     if ischar( ln )
+ 9.         fprintf( oh, ln );
+10.     end
+11. end
+12. fclose( ih );
+13. fclose( oh );
+        % ---> File: Listing_08_04.m
+    % Listing 08.04 Reading structure data
+ 1. function data = readStruct(filename)
+    % read a spreadsheet and produce a
+    % structure array:
+    % name - the second column value
+    % pos - columns 3 and 4 in a vector
+    % connect - cell array with the remaining
+    % data on the row
+ 2.     [no no raw] = xlsread(filename);
+ 3.     [rows cols] = size(raw);
+        % ignore the first row and column
+ 4.     out = 1;
+ 5.     for row = 2:rows
+ 6.         str.name = raw{row,2};
+ 7.         str.pos = [raw{row,3} raw{row,4}];
+ 8.         cni = 1;
+ 9.         conn = {};
+10.         for col = 5:cols
+11.             item = raw{row, col};
+12.             if ~ischar(item)
+13.                 break;
+14.             end
+15.             conn{cni} = item;
+16.             cni = cni + 1;
+17.         end
+18.         str.connect = conn;
+19.         data(out) = str;
+20.         out = out + 1;
+21.     end
+22. end
+        % ---> File: Listing_09_01.m
+    % Listing 09.01 Function to compute N factorial
+ 1. function result = fact(N)
+        % recursive computation of N!
+        % fprintf('fact( %d )\n', N); % testing only
+ 2.     if N == 0
+ 3.         result = 1;
+ 4.     else
+ 5.         result = N * fact(N - 1);
+ 6.     end
+ 7. end
+        % ---> File: Listing_09_02.m
+    % Listing 09.02 script using exception processing
+ 1. OK = false;
+ 2. while ~OK
+ 3.     try
+ 4.         side = input('enter a triangle: ');
+ 5.         a = side(1); b = side(2); c = side(3);
+ 6.         cosC = (c^2 - a^2 - b^2)/(2 * a * b);
+ 7.         angle = acosd(cosC);
+ 8.         if imag(angle) ~= 0
+ 9.             error('bad triangle')
+10.         end
+11.     catch
+12.         disp('bad triangle - try again')
+13.     end
+14.     OK = true;
+15. end
+16. fprintf('the angle is %f\n', angle)
+        % ---> File: Listing_09_03.m
+    % Listing 09.03 Wrapper implementation for the factorial function
+ 1. function result = fact(N)
+    % computation of N!
+ 2.     if (N < 0) || ((N - floor(N)) > 0)
+ 3.         error('bad parameter for fact');
+ 4.     else
+ 5.         result = local_fact(N);
+ 6.     end
+ 7. end
+ 8. function result = local_fact(N)
+    % recursive computation of N!
+ 9.     fprintf('fact( %d )\n', N);
+10.     if N == 0
+11.         result = 1;
+12.     else
+13.         result = N * local_fact(N - 1);
+14.     end
+15. end
+        % ---> File: Listing_09_04.m
+    % Listing 09.04 Recursive palindrome detector
+ 1. function ans = isPal(str)
+        % recursive palindrome detector
+ 2.     if length(str) < 2
+ 3.         ans = true;
+ 4.     elseif str(1) ~= str(end)
+ 5.         ans = false;
+ 6.     else
+ 7.         ans = isPal(str(2:end-1));
+ 8.     end
+ 9. end
+        % ---> File: Listing_09_05.m
+    % Listing 09.05 The Fibonacci function
+ 1. function result = fib(N)
+    % recursive computation the Nth Fibonacci number
+ 2.     if N == 1 || N == 2
+ 3.         result = 1;
+ 4.     else
+ 5.         result = fib(N-1) + fib(N-2);
+ 6.     end
+ 7. end
+        % ---> File: Listing_09_06.m
+    % Listing 09.06 Initial zero crossings
+ 1. px = linspace(-6.3, 8.4, 19);
+ 2. py = f(px);
+ 3. zeros = find(py(1:end-1) .* py(2:end) <= 0)
+ 4. disp('zeros occur just after')
+ 5. px(zeros)
+ 6. root = findZero([px(zeros(3)) px(zeros(3)+1)])
+        % ---> File: Listing_09_07.m
+    % Listing 09.07 Recursive root finding
+ 1. function pt = findZero(x)
+    % x is a lower-upper pair guaranteed to have
+    % y values of opposite sign
+    % return the x coordinate of the root
+ 2.     if abs(x(1)-x(2)) < .001
+ 3.         pt = x(1);
+ 4.     else
+ 5.         mx = sum(x)/2;
+ 6.         my = f(mx);
+ 7.         if my*f(x(1)) <= 0
+ 8.             pt = findZero([x(1) mx]);
+ 9.         else
+10.             pt = findZero([mx x(2)]);
+11.         end
+12.     end
+13. end
+        % ---> File: Listing_09_08.m
+    % Listing 09.08 Finding arm position
+ 1. global r1
+ 2. r1 = 4
+ 3. global r2
+ 4. r2 = 3
+ 5. global alpha
+ 6. alpha = pi/6 % 30 deg
+ 7. beta = linspace(-pi, pi, 19);
+ 8. pf = fab(beta);
+ 9. zeros = find(pf(1:end-1) .* pf(2:end) <= 0)
+10. disp('zeros occur just after')
+11. beta(zeros)
+    %
+12. zero = findZeroAB([beta(zeros(1)) ...
+13.         beta(zeros(1)+1)])
+        % ---> File: Listing_09_09.m
+    % Listing 09.09 Function for zeros
+ 1. function res = fab(beta)
+    % f(beta) = r1 (cos(alpha) + sin(alpha) - 1)
+    % + r2 (cos(beta) + sin(beta) - 1)
+ 2. global r1
+ 3. global r2
+ 4. global alpha
+ 5. res = r1 * (cos(alpha) + sin(alpha) - 1) ...
+ 6.        + r2 * (cos(beta) + sin(beta) - 1);
+        % ---> File: Listing_09_10.m
+    % Listing 09.10 Recursive zero finder
+ 1. function pt = findZeroAB(x)
+    % x is a lower-upper pair guaranteed to have
+    % y values of opposite sign
+ 2.     y = fab(x);
+ 3.     if abs(x(1)-x(2)) < .001
+ 4.         pt = [x(1) y(1)];
+ 5.     else
+ 6.         mx = sum(x)/2;
+ 7.         my = fab(mx);
+ 8.         if my*y(1) < 0
+ 9.             pt = findZeroAB([x(1) mx]);
+10.         else
+11.             pt = findZeroAB([mx x(2)]);
+12.         end
+13.     end
+14. end
+        % ---> File: Listing_10_01.m
+    % Listing 10.01 Country analysis
+    % build the country array
+ 1. worldData = buildData('World_data.xls');
+ 2. best = findBest(worldData);
+ 3. fprintf('best country is %s\n', ...
+ 4.     worldData(best).name)
+        % ---> File: Listing_10_02.m
+    % Listing 10.02 Building the country data
+ 1. function worldData = buildData(name)
+    % read the spreadsheet into a data array
+    % and a text cell array
+ 2.     [data txt] = xlsread(name);
+ 3.     country = ' '; % force the first data row
+                       % to change the country
+ 4.     cntry_index = 0;
+        % Traverse the data and cell arrays producing
+        % an array of structures,
+        % one for each country
+ 5.     for row = 1:length(data)
+            % Because the text data in txt contains
+            % the header row of the spreadsheet,
+            % the data at a given row belongs to the country
+            % whose name is at txt{row+1}.
+            % if the country name changes,
+            % begin a new structure.
+ 6.         if ~strcmp(txt{row+1}, country)
+ 7.             col = 1;
+ 8.             country = txt{row+1};
+ 9.             cntry_index = cntry_index + 1;
+10.             cntry.year = 1;
+11.             cntry.pop = 1;
+12.             cntry.gdp = 1;
+13.         end
+14.         cntry.name = country;
+15.         cntry.year(col) = data(row, 1);
+16.         cntry.pop(col) = data(row, 2);
+17.         cntry.gdp(col) = data(row, 5);
+18.         col = col + 1;
+19.         worldData(cntry_index) = cntry;
+20.     end
+21. end
+        % ---> File: Listing_10_03.m
+    % Listing 10.03 Folding the country data
+ 1. function besti = findbest(worldData)
+    % find the index of the best country
+    % according to the criterion in the function
+    % fold
+ 2.     best = fold(worldData(1));
+ 3.     besti = 1;
+ 4.     for ndx = 2:length(worldData)
+ 5.         cntry = worldData(ndx);
+ 6.         tryThis = fold(cntry);
+ 7.         if tryThis > best
+ 8.             best = tryThis;
+ 9.             besti = ndx
+10.         end
+11.     end
+12. end
+13. function ans = fold(st)
+    % s1 is the rate of growth of population
+14.     pop = st.pop(~isnan(st.pop));
+15.     yr = st.year(~isnan(st.pop));
+16.     s1 = slope(yr, pop)/mean(pop);
+        % s2 is the rate of growth of the GDP
+17.     gdp = st.gdp(~isnan(st.gdp));
+18.     yr = st.year(~isnan(st.gdp));
+19.     s2 = slope(yr, gdp)/mean(gdp);
+        % Measure of merit is how much faster
+        % the gdp grows than the population
+20.     ans = s2 - s1;
+21. end
+22. function sl = slope(x, y)
+    % Estimate the slope of a curve
+23.     if length(x) == 0 || x(end) == x(1)
+24.         error('bad data')
+25.     else
+26.         sl = (y(end) - y(1))/(x(end) - x(1));
+27.     end
+28. end
+        % ---> File: Listing_11_01.m
+    % Listing 11.01 Creating a subplot
+ 1. close all
+ 2. x = -2*pi:.05:2*pi;
+ 3. subplot(3,2,1)
+ 4. plot(x, sin(x))
+ 5. title('1 - sin(x)');
+ 6. subplot(3,2,2)
+ 7. plot(x, cos(x))
+ 8. title('2 - cos(x)');
+ 9. subplot(3,2,3)
+10. plot(x, tan(x))
+11. title('3 - tan(x)');
+12. subplot(3,2,4)
+13. plot(x, x.^2)
+14. title('4 - x^2');
+15. subplot(3,2,5)
+16. plot(x, sqrt(x))
+17. title('5 - sqrt(x)');
+18. subplot(3,2,6)
+19. plot(x, exp(x))
+20. title('4 - e^x');
+21. 
+        % ---> File: Listing_11_02.m
+    % Listing 11.2 Simple 2-D plots
+ 1. x = linspace(-1.5, 1.5, 30);
+ 2. clr = 'rgbk';
+ 3. for pwr = 1:4
+ 4.     plot(x, x.^pwr, clr(pwr))
+ 5.     hold on
+ 6. end
+ 7. xlabel('x')
+ 8. ylabel('x^N')
+ 9. title('powers of x')
+10. legend({'N=1', 'N=2', 'N=3', 'N=4'}, ...
+11.           'Location','SouthEast')
+        % ---> File: Listing_11_03.m
+    % Listing 11.03 Parametric plots
+ 1. th = linspace(0, 2*pi, 40);
+ 2. r = 1.1; g = .1;
+ 3. cx = sqrt(r^2-g^2) - 1; cy = g;
+ 4. x = r*cos(th) + cx;
+ 5. y = r*sin(th) + cy;
+ 6. plot( x, y,  'r' )
+ 7. axis equal
+ 8. grid on
+ 9. hold on
+10. z = complex(x, y);
+11. w = z + 1./z;
+12. plot( real(w), imag(w), 'k' );
+        % ---> File: Listing_11_04.m
+    %Listing 11.04 Simple 3-D line plots
+ 1. x=0:0.1:3.*pi;
+ 2. y1=zeros(size(x));
+ 3. z1=sin(x);
+ 4. z2=sin(2.*x);
+ 5. z3=sin(3.*x);
+ 6. y3=ones(size(x));
+ 7. y2=y3./2;
+ 8. plot3(x,y1,z1, 'r',x,y2,z2, 'b',x,y3,z3, 'g')
+ 9. grid on
+10. xlabel('x-axis'), ylabel('y-axis'), zlabel('z-axis')
+        % ---> File: Listing_11_05.m
+    % Listing 11.05 Linear parametric 3-D plots
+ 1. subplot(1, 2, 1)
+ 2. theta = 0:0.1:10.*pi;
+ 3. plot3(sin(theta),cos(theta),theta)
+ 4. title('parametric curve based on angle');
+ 5. grid on
+ 6. subplot(1, 2, 2)
+ 7. N = 20;
+ 8. dvx = rand(1, N) - 0.5 % random v changes
+ 9. dvy = rand(1, N) - 0.5
+10. dvz = rand(1, N) - 0.5
+11. x = cumsum(cumsum(dvx)); % integrate to get pos
+12. y = cumsum(cumsum(dvy));
+13. z = cumsum(cumsum(dvz));
+14. plot3(x,y,z)
+15. grid on
+16. title('all 3 axes varying with parameter t')
+17. text(0,0,0, 'start');
+18. text(x(N),y(N),z(N), 'end');
+        % ---> File: Listing_11_06.m
+    % Listing 11.06 Simple solid cube
+ 1. xx = [  0  0  0  0  0   % P-P-P-P-P
+ 2.        -1 -1  1  1 -1   % A-B-C-D-A
+ 3.        -1 -1  1  1 -1   % E-F-G-H-E
+ 4.         0  0  0  0  0]; % Q-Q-Q-Q-Q
+ 5. yy = [  0  0  0  0  0   % P-P-P-P-P
+ 6.         1 -1 -1  1  1   % A-B-C-D-A
+ 7.         1 -1 -1  1  1   % E-F-G-H-E 
+ 8.         0  0  0  0  0]; % Q-Q-Q-Q-Q
+ 9. zz = [  1  1  1  1  1   % P-P-P-P-P
+10.         1  1  1  1  1   % A-B-C-D-A
+11.        -1 -1 -1 -1 -1   % E-F-G-H-E
+12.        -1 -1 -1 -1 -1]; % Q-Q-Q-Q-Q
+13. surf(xx, yy, zz)
+14. colormap bone
+15. axis equal
+16. shading interp
+17. view(-36, 44)
+18. axis off
+        % ---> File: Listing_11_07.m
+    % Listing 11.07 Simple surface plot
+ 1. x=-3:3; y = x ;
+ 2. [xx,yy]=meshgrid(x,y);
+ 3. zz=xx.^2 + yy.^2;
+ 4. mesh(xx,yy,zz)
+ 5. axis tight
+ 6. title('z = x^2 + y^2')
+ 7. xlabel('x'),ylabel('y'),zlabel('z')
+ 8. 
+        % ---> File: Listing_11_08.m
+    % Listing 11.08 Constructing a cylinder
+ 1. facets = 120; len = 2; radius = 1;
+ 2. thr = linspace(0, 2*pi, facets);
+ 3. xr = [0 len];
+ 4. [xx, tth] = meshgrid( xr, thr );
+ 5. yy = radius * cos(tth);
+ 6. zz = radius * sin(tth);
+ 7. surf(xx, yy, zz);
+ 8. shading interp
+ 9. colormap bone
+10. axis equal,axis tight,axis off
+11. lightangle(60, 45)
+12. alpha(0.8)
+13. view(-20, 35)
+        % ---> File: Listing_11_09.m
+    % Listing 11.09 Constructing a sphere
+ 1. facets = 120; radius = 1;
+ 2. thr = linspace(0, 2*pi, facets); % range of theta
+ 3. phir = linspace(0, pi, facets); % range of phi
+ 4. [th, phi] = meshgrid( thr, phir );
+ 5. x = radius * cos(phi);
+ 6. y = radius * sin(phi) .* cos(th);
+ 7. z = radius * sin(phi) .* sin(th);
+ 8. surf(x, y, z);
+ 9. shading interp
+10. colormap copper
+11. axis equal, axis tight, axis off
+12. lightangle(60, 45)
+        % ---> File: Listing_11_10.m
+    % Listing 11.10 Rotating v = u2 about the x and z axes
+ 1. facets = 100;
+ 2. u = linspace(0, 5, facets);
+ 3. th = linspace(0, 2*pi, facets);
+ 4. [uu tth] = meshgrid(u, th);
+    % rotate about the x-axis
+ 5. subplot(1, 2, 1)
+ 6. rr = uu.^2;
+ 7. xx = uu;
+ 8. yy = rr .* cos(tth);
+ 9. zz = rr .* sin(tth);
+10. surf(xx, yy, zz, xx);
+11. shading interp, axis tight
+12. xlabel('x'), ylabel('y'), zlabel('z')
+13. title('u^2 rotated about the x-axis')
+    % rotate about the z-axis
+14. subplot(1, 2, 2)
+15. rr = uu;
+16. zz = rr.^2;
+17. xx = rr .* cos(tth);
+18. yy = rr .* sin(tth);
+19. surf(xx, yy, zz);
+20. shading interp, axis tight
+21. xlabel('x'), ylabel('y'), zlabel('z')
+22. title('u^2 rotated about the z-axis')
+        % ---> File: Listing_11_11.m
+    % Listing 11.11 Rotating an irregular shape
+ 1. u = [0 0 3 3 1.75 1.75 2 2 1.75 1.75 3 4 ...
+ 2.      5.25 5.25 5 5 5.25 5.25 3 3 6 6];
+ 3. v = [0 .5 .5 .502 .502 .55 .55 1.75 1.75 ...
+ 4.      2.5 2.5 1.5 1.5 1.4 1.4 ...
+ 5.      .55 .55 .502 .502 .5 .5 0];
+ 6. subplot(1, 2, 1)
+ 7. plot(u, v, 'k')
+ 8. axis ([-1 7 -1 3]), axis equal, axis off
+ 9. title('2-D profile')
+10. facets = 200;
+11. subplot(1, 2, 2)
+12. [xx tth] = meshgrid( u, linspace(0, 2*pi, facets) );
+13. rr = meshgrid( v, 1:facets);
+14. yy = rr .* cos(tth);
+15. zz = rr .* sin(tth);
+16. surf(xx, yy, zz);
+17. shading interp
+18. axis square, axis tight, axis off
+19. colormap bone
+20. lightangle(60, 45)
+21. alpha(0.8)
+22. title('rotated object')
+        % ---> File: Listing_11_12.m
+    % Listing 11.12 Map data analysis
+    % draw the streets
+ 1. raw = dlmread('atlanta.txt'); 
+ 2. streets = raw(:,3:7);
+ 3. [rows,cols] = size(streets)
+ 4. colors = 'rgbkcmo';
+ 5. for in = 1:rows
+ 6.     x = streets(in,[1 3])/1000000;
+ 7.     y = streets(in,[2 4])/1000000;
+ 8.     col = streets(in,5);
+ 9.     col(col < 1) = 7;
+10.     col(col > 6) = 7;
+11.     plot(x,y,colors(col));
+12.     hold on
+13. end
+    % plot the travel times
+14. tt = dlmread('ttimes.txt');
+15. [rows,cols] = size(tt)
+16. for in = 1:rows
+17.     r = tt(in, 1); c = tt(in, 2);
+18.     xc(r,c) = tt(in, 4)/1000000;
+19.     yc(r,c) = tt(in, 5)/1000000;
+20.     zc(r,c) = tt(in, 6);
+21. end
+22. surf(xc, yc, zc)
+23. shading interp
+24. alpha(.5)
+25. grid on
+26. axis tight
+27. xlabel('Longitude')
+28. ylabel('Latitude')
+29. zlabel('Travel Time (min)')
+30. view(-30, 45)
+        % ---> File: Listing_12_01.m
+    % Listing 12.01 Script to rotate a line
+ 1. pts = [3, 10
+ 2.        1, 3];
+ 3. plot(pts(1,:), pts(2,:))
+ 4. axis ([0 10 0 10]), axis equal
+ 5. hold on
+ 6. for angle = 0.05:0.05:1
+ 7.     A = [ cos(angle), -sin(angle); sin(angle), cos(angle) ];
+ 8.     pr = A * pts;
+ 9.     plot(pr(1,:), pr(2,:))
+10. end
+        % ---> File: Listing_12_02.m
+    % Listing 12.02 Simulating stars
+ 1. nst = 20; th = 0;
+ 2. for ndx = 1:nst
+ 3.     pos(ndx,:) = rand(1,2)*10;
+ 4.     scale(ndx) = rand(1,1) * .9 + .1;
+ 5.     rate(ndx) = rand(1,1) * 3 + 1;
+ 6. end
+ 7. while true
+ 8.     for str = 1:nst
+ 9.         star(pos(str,:), ... % location
+10.             scale(str), ... % scale
+11.             th, ... % basic angle
+12.             rate(str)) % angle multiplier
+13.     end
+14.     colormap autumn
+15.     axis equal; axis([-.5 10.5 -.5 10.5])
+16.     axis off; hold off
+17.     th = mod(th + .1, 20*pi);
+18.     pause(0.1)
+19. end
+        % ---> File: Listing_12_03.m
+    % Listing 12.03 Drawing one star
+ 1. function star(pt, sc, v, th)
+    % draw a star at pt(1), pt(2),
+    % scaled with sc, at angle v*th
+ 2.     triangle(1, v*th, pt, sc) 
+ 3.     hold on
+ 4.     triangle(-1, v*th, pt, sc)
+ 5. end
+ 6. function triangle( up, th, pt, sc )
+ 7.     pts = [-.5    .5    0   -.5; % x values
+ 8.            -.289 -.289 .577 -.289]; % y values
+        % rotation matrix
+ 9.     A = sc * [cos(th), -sin(th); sin(th), cos(th)];
+10.     thePts = A * pts;
+11.     fill( thePts(1,:) + pt(1), ...
+12.           up*thePts(2,:) + pt(2), 1);
+13. end
+        % ---> File: Listing_12_04.m
+    % Listing 12.04 Rotating a solid cube
+ 1. xx = [ 0  0  0  0  0;
+ 2.       -1 -1  1  1 -1;
+ 3.       -1 -1  1  1 -1;
+ 4.        0  0  0  0  0];
+ 5. yy = [ 0  0  0  0  0;
+ 6.       -1  1  1 -1 -1;
+ 7.       -1  1  1 -1 -1;
+ 8.        0  0  0  0  0];
+ 9. zz = [ 1  1  1  1  1;
+10.        1  1  1  1  1;
+11.       -1 -1 -1 -1 -1;
+12.       -1 -1 -1 -1 -1];
+13. [r c] = size(xx);
+14. ln = r*c; % length of reshaped vector
+15. th = 0; ph = 0; ps = 0;
+16. dth = 0.05; dph = 0.03; dps = 0.01;
+17. go = true
+18. while go
+19.     surf(xx+4, yy, zz)
+20.     shading interp; colormap autumn
+21.     hold on; alpha(0.5)
+22.     Rz = [cos(th) -sin(th) 0
+23.           sin(th)  cos(th) 0
+24.              0       0     1];
+25.     Ry = [cos(ph) 0 -sin(ph)
+26.              0    1    0
+27.           sin(ph) 0 cos(ph)];
+28.     Rx = [   1    0       0
+29.              0 cos(ps) -sin(ps)
+30.              0 sin(ps) cos(ps)];
+31.     P(1,:) = reshape(xx, 1, ln);
+32.     P(2,:) = reshape(yy, 1, ln);
+33.     P(3,:) = reshape(zz, 1, ln);
+34.     Q = Rx*Ry*Rz*P;
+35.     qx = reshape(Q(1,:), r, c);
+36.     qy = reshape(Q(2,:), r, c);
+37.     qz = reshape(Q(3,:), r, c);
+38.     surf(qx, qy, qz)
+39.     shading interp
+40.     axis equal; axis off; hold off
+41.     axis([-2 6 -2 2 -2 2])
+42.     lightangle(40, 65); alpha(0.5)
+43.     th = th+dth; ph = ph+dph; ps = ps+dps;
+44.     go = ps < pi/4
+45.     pause(0.03)
+46. end
+        % ---> File: Listing_12_05.m
+    % Listing 12.05 Plotting line intersections
+    % equations are y = m1 x + c1
+    % y = m2 x + c2
+    % in matrix form:
+    % [ -m1 1; * [xp; = [c1
+    % -m2 1 ] yp] c2]
+ 1. ax = [-0.5 6]; ay = [-4.5 18];
+    % plot the two lines
+ 2. m1 = 3; c1 = -2;
+ 3. y1 = m1*ax + c1;
+ 4. m2 = -2; c2 = 9;
+ 5. y2 = m2*ax + c2;
+ 6. plot(ax, y1)
+ 7. hold on
+ 8. plot(ax, y2, 'b--')
+    % solve for the intersection point
+ 9. A = [-m1 1; -m2 1];
+10. c = [c1; c2];
+11. P = A\c;
+    % draw intersection identification lines
+12. ix = P(1); iy = P(2);
+13. plot([ix ix], [0 iy*1.2], 'r:')
+14. plot([0 ix*1.2],[iy iy], 'r:')
+    % draw the axes
+15. plot(ax, [0 0], 'k');
+16. axis([ax ay])
+17. plot([0 0], ay, 'k');
+18. legend({'Line 1','Line 2','Intersect'}, ...
+19.         'Location','NorthWest' )
+        % ---> File: Listing_12_06.m
+    % Listing 12.06 Analyzing ceramic composition
+ 1. A = [0.6950 0.8970 0.0670 0.6920
+ 2.      0.1750 0.0372 0.0230 0.0160
+ 3.      0.0080 0.0035 0.0600 0.0250
+ 4.      0.1220 0.0623 0.8500 0.2670];
+ 5. B = [67 5 2 26]';
+ 6. W = (inv(A) * B)' 
+        % ---> File: Listing_12_07.m
+    % Listing 12.07 Analyzing an electrical circuit
+ 1. R1 = 100; R2 = 200; R3 = 300;
+ 2. R4 = 400; R5 = 500;
+ 3. V1 = 10; V2 = 5;
+ 4. A = [R1+R4 -R4      0
+ 5.      -R4 R2+R4+R5 -R5
+ 6.        0   -R5    R3+R5];
+ 7. B = [V1; 0; -V2];
+ 8. curr = inv(A) * B
+ 9. fprintf('drop across R1 is %6.2f volts\n', ...
+10.                     curr(1) * R1 );
+        % ---> File: Listing_13_01.m
+    % Listing 13.01 Exploring the sky situation
+ 1. v = imread('Vienna.jpg');
+ 2. image(v)
+ 3. figure
+ 4. row = 400;
+ 5. red = v(row, :, 1);
+ 6. gr = v(row, :, 2);
+ 7. bl = v(row, :, 3);
+ 8. plot(red, 'r');
+ 9. hold on
+10. plot(gr, 'g');
+11. plot(bl, 'b');
+        % ---> File: Listing_13_02.m
+    % Listing 13.02 Replacing the gray sky
+ 1. v = imread('Vienna.jpg');
+ 2. w = imread('Witney.jpg');
+ 3. image(w)
+ 4. figure
+ 5. thres = 160;
+ 6. layer = (v(:,:,1) > thres) ...
+ 7. & (v(:,:,2) > thres) ...
+ 8. & (v(:,:,3) > thres);
+ 9. mask(:,:,1) = layer;
+10. mask(:,:,2) = layer;
+11. mask(:,:,3) = layer;
+12. mask(700:end,:,:) = false;
+13. nv = v;
+14. nv(mask) = w(mask);
+15. image(nv);
+16. imwrite(nv, 'newVienna.jpg', 'jpg')
+        % ---> File: Listing_13_03.m
+    % Listing 13.03 Making a kaleidoscope
+ 1. sb = imread('sqbutter.jpg');
+ 2. subplot( 1, 2, 1);
+ 3. image(sb);
+ 4. cols = length(sb);
+ 5. mid = cols/2
+ 6. subplot( 1, 2, 2);
+ 7. img = [diagMirror( sb(1:mid, 1:mid, :), 0 ) ...
+ 8. diagMirror( sb(1:mid, mid+1:end, :), 3 );
+ 9. diagMirror( sb(mid+1:end, 1:mid, :), 1 ) ...
+10. diagMirror( sb(mid+1:end, mid+1:end, :), 2 )];
+11. image(img);
+        % ---> File: Listing_13_04.m
+    % Listing 13.04 Rotating a globe
+ 1. WM = imread('earthmap_s.jpg');
+ 2. WM(:,end+1,:) = WM(:,1,:);
+ 3. snow = mean(mean(WM(1,:,:)));
+ 4. [WMr, WMc, clr] = size(WM);
+ 5. rowsperdeglat = WMr/170
+ 6. add = floor(rowsperdeglat * 5)
+ 7. addlayer = uint8(ones(add, WMc) * snow);
+ 8. toAdd(:,:,1) = addlayer;
+ 9. toAdd(:,:,2) = addlayer;
+10. toAdd(:,:,3) = addlayer;
+11. worldMap = [toAdd; WM; toAdd];
+12. [nlat nlong clr] = size(worldMap)
+13. lat = double(0:nlat-1) * pi / nlat;
+14. long = double(0:nlong-1) * 2 * pi / (nlong-1);
+15. [th phi] = meshgrid(long, lat);
+16. radius = 10;
+17. zz = radius * cos(phi);
+18. xx = radius * sin(phi) .* cos(th);
+19. yy = radius * sin(phi) .* sin(th);
+20. wM = double(worldMap) / 256;
+21. surf(xx, yy, zz, wM);
+22. shading interp
+23. axis equal, axis off, axis tight
+24. material dull
+25. th = 0;
+26. handle = light('Color',[int,int,int]);  % a custom light source
+27. while true
+28.     th = th - 1;
+29.     view([th 20]);
+30.     lightangle(handle, th+50, 20)
+31.     pause(.001)
+32. end
+        % ---> File: Listing_13_05.m
+    % Listing 13.05 Edge detection
+ 1. pic = imread('C-130.jpg');
+ 2. imshow(pic)
+ 3. figure
+ 4. [rows, cols, cl] = size(pic);
+ 5. amps = uint16(pic(:,:,1))...
+ 6. + uint16(pic(:,:,2))...
+ 7. + uint16(pic(:,:,3));
+ 8. up = max(max(amps))
+ 9. dn = min(min(amps))
+10. fact = .5
+11. thresh = uint16(dn + fact * (up - dn))
+12. pix = amps(2:end, 2:end);
+13. ptl = amps(1:end-1, 1:end-1);
+14. pt = amps(1:end-1, 2:end);
+15. pl = amps(2:end, 1:end-1);
+16. alloff= and(and((pix > thresh), ( pt > thresh)),...
+17. and(( pl > thresh), (ptl > thresh)));
+18. allon = and(and((pix <= thresh), ( pt <= thresh)),...
+19. and(( pl <= thresh), (ptl <= thresh)));
+20. edges = and(not(allon), not(alloff));
+21. layer = uint8(ones(rows-1, cols-1) *255);
+22. layer(edges) = 0;
+23. outline(:,:,1) = layer;
+24. outline(:,:,2) = layer;
+25. outline(:,:,3) = layer;
+26. image(outline)
+27. imwrite(outline, 'c-130 edges.jpg', 'jpg')
+        % ---> File: Listing_14_01.m
+    % Listing 14.01 Play a scale by shrinking the note
+ 1. [note, Fs] = wavread('instr_piano.wav');
+ 2. half = 2^(1/12);
+ 3. whole = half^2;
+ 4. for index = 1:8
+ 5.     sound(note, Fs);
+ 6.     if (index == 3) || (index == 7)
+ 7.         mult = half;
+ 8.     else
+ 9.         mult = whole;
+10.     end
+11.     note = note(ceil(1:mult:end));
+12. end;
+        % ---> File: Listing_14_02.m
+    % Listing 14.02 Building a tune file
+ 1. [note, Fs] = wavread('instr_piano.wav');
+ 2. half = 2^(1/12);
+ 3. doremi = [1 3; 2 1; 3 3; 1 1; 3 2; 1 2; 3 4; 2 3;
+ 4.     3 1; 4 1; 4 1; 3 1; 2 1; 4 8; 3 3; 4 1;
+ 5.     5 3; 3 1; 5 2; 3 2; 5 4; 4 3; 5 1; 6 1;
+ 6.     6 1; 5 1; 4 1; 6 4 ];
+ 7. steps = [0 2 4 5 7 9 11 12];
+ 8. dt = .2;
+ 9. nCt = floor(dt*Fs);
+10. storeAt = 1;
+11. for index = 1:length(doremi)
+12.     key = doremi(index,1);
+13.     pow = steps(key);
+14.     theNote = note(ceil(1:half^pow:end));
+15.     noteLength = length(theNote);
+16.     noteEnd = storeAt + noteLength - 1;
+17.     tune(storeAt:noteEnd,1) = theNote;
+18.     storeAt = storeAt + doremi(index,2) * nCt;
+19. end
+20. sound(tune, Fs)
+21. wavwrite(tune, Fs, 'dohAdeer.wav')
+        % ---> File: Listing_14_03.m
+ 1. clear
+ 2. clc
+ 3. close all
+    % Listing 14.03 FFT of a sine wave
+ 4. dt = 1/400 % sampling period (sec)
+ 5. pts = 10000 % number of points
+ 6. f = 8 % frequency
+ 7. t = (1:pts) * dt; % time array for plotting
+ 8. x = sin(2*pi*f*t);
+ 9. subplot(3, 1, 1)
+10. plot(t(1:end/25), x(1:end/25));
+11. title('Time Domain Sine Wave')
+12. ylabel('Amplitude')
+13. xlabel('Time (Sec)')
+14. Y = fft(x); % perform the transform
+15. df = 1 / t(end) % the frequency interval
+16. fmax = df * pts / 2
+17. f = (1:pts) * 2 * fmax / pts;
+    % frequencies for plotting
+18. subplot(3, 1, 2)
+19. plot(f, real(Y))
+20. title('Real Part')
+21. xlabel('Frequency (Hz)')
+22. ylabel('Energy')
+23. subplot(3, 1, 3)
+24. plot(f, imag(Y))
+25. title('Imaginary Part')
+26. xlabel('Frequency (Hz)')
+27. ylabel('Energy')
+        % ---> File: Listing_14_04.m
+    % Listing 14.04 Plotting the spectrum of one instrument
+ 1. function inst(name, ttl)
+    % plot the spectrum of the instrument with
+    % the given name, with the given plot title
+ 2. [x, Fs] = wavread(['instr_' name '.wav']);
+ 3. N = length(x);
+ 4. dt = 1/Fs; % sampling period (sec)
+ 5. t = (1:N) * dt; % time array for plotting
+ 6. Y = abs(fft(x)); % perform the transform
+ 7. mx = max(Y);
+ 8. Y = Y * 100 / mx;
+ 9. df = 1 / t(end) ; % the frequency interval
+10. fmax = df * N / 2 ;
+11. f = (1:N) * 2 * fmax / N;
+12. up = floor(N/10);
+13. plot(f(1:up), Y(1:up) );
+14. title(ttl)
+15. xlabel('Frequency (Hz)')
+16. ylabel('Energy')
+        % ---> File: Listing_14_05.m
+    % Listing 14.05 Script to plot eight-instrument spectra
+ 1. rows = 4; cols = 2
+ 2. subplot(rows, cols, 1)
+ 3. inst('sax', 'Saxophone');
+ 4. subplot(rows, cols, 2)
+ 5. inst('flute', 'Flute');
+ 6. subplot(rows, cols, 3)
+ 7. inst('tbone', 'Trombone');
+ 8. subplot(rows, cols, 4)
+ 9. inst('piano', 'Piano');
+10. subplot(rows, cols, 5)
+11. inst('tpt', 'Trumpet');
+12. subplot(rows, cols, 6)
+13. inst('mutetpt', 'Muted Trumpet');
+14. subplot(rows, cols, 7)
+15. inst('violin', 'Violin');
+16. subplot(rows, cols, 8)
+17. inst('cello', 'Cello');
+        % ---> File: Listing_14_06.m
+    % Listing 14.06 Synthesizing a piano
+ 1.  [snd Fs] = wavread('instr_piano.wav');
+ 2.  N = length(snd);
+ 3.  sound(snd, Fs)
+ 4.  tMax = N / Fs;
+ 5.  dt = 1 / Fs;
+ 6.  Y = fft(snd);
+ 7.  Ns = N/4;
+ 8.  fMax = Fs/4;
+ 9.  df = fMax / Ns;
+10. f = ((1:Ns) - 1) * df;
+11. rl = real(Y(1:Ns));
+12. im = imag(Y(1:Ns));
+13. plot(f, abs(Y(1:Ns)))
+14. xlabel('frequency (Hz)')
+15. ylabel('real amplitude')
+16. zlabel('imag amplitude')
+17. amps = abs(Y(1:end/2));
+18. Nc = 25;
+19. for ndx = 1:Nc
+20.     [junk where] = max(amps);
+21.     C(ndx).freq = where;
+22.     C(ndx).coeff = Y(where);
+23.    amps(where-25:where+25) = 0;
+24. end
+25. frq = [C.freq];
+26. [frq order] = sort(frq);
+27. sortedStr = C(order);
+28. Nt = 25;
+29. t = (1:2*Fs) * dt;
+30. f = zeros(1, length(t));
+31. for ndx = 1:Nt
+32.  w = frq(ndx) * df * 2 * pi;
+33.     ct = cos(w*t);
+34.     st = sin(w*t);
+35.     Cf = sortedStr(ndx).coeff;
+36.     f = f + real(Cf) * ct + imag(Cf) * st;
+37. end
+    % amplitude shaping goes here
+38. sf = f ./ max(f);
+39. sound(sf, Fs)
+        % ---> File: Listing_15_01.m
+    % Listing 15_01 - linear interpolation 
+ 1. x = 0:5;
+ 2. y = [0, 20, 60, 68, 77, 110];
+ 3. interp1(x, y ,1.5)
+ 4. new_x = 0:0.2:5
+ 5. length(new_x)
+ 6. new_y = interp1(x,y,new_x)
+ 7. length(new_y)
+ 8. plot(x, y, 'r+')
+ 9. hold on
+10. plot(new_x, new_y, 'o')
+11. axis([-1,6,-20,120])
+12. title('linear Interpolation Plot')
+13. xlabel('x values') ; ylabel('y values')
+14. 
+        % ---> File: Listing_15_02.m
+    % Listing 15.02 Spline interpolation
+ 1. x = 0:5;
+ 2. y = [0, 20, 60, 68, 77, 110];
+ 3. new_x = 0:0.2:5;
+ 4. new_y = spline(x, y, new_x);
+ 5. plot(x, y, 'o', new_x, new_y, '-')
+ 6. axis([-1,6,-20,120])
+ 7. title('Cubic-Spline Data Plot')
+ 8. xlabel('x values'); ylabel('y values')
+        % ---> File: Listing_15_03.m
+    % Listing 15.03 Eyeball linear estimation
+ 1. x = 0:5;
+ 2. y = [0 20 60 68 77 110];
+ 3. y2 = 20 * x;
+ 4. plot(x, y, 'o', x, y2);
+ 5. axis([-1 7 -20 120])
+ 6. title('Linear Estimate')
+ 7. xlabel('Time (sec)')
+ 8. ylabel('Temperature (degrees F)')
+ 9. grid on
+        % ---> File: Listing_15_04.m
+    % Listing 15.04 Higher-order fits
+ 1. x = 0:5;
+ 2. fine_x = 0:.1:5;
+ 3. y = [0 20 60 68 77 110];
+ 4. for order = 2:5
+ 5.     y2=polyval(polyfit(x,y,order), fine_x);
+ 6.     subplot(2,2,order-1)
+ 7.     plot(x, y, 'o', fine_x, y2)
+ 8.     axis([-1 7 -20 120])
+ 9.     ttl = sprintf('Degree %d Polynomial Fit', ...
+10.                                          order );
+11.     title(ttl)
+12.     xlabel('Time (sec)')
+13.     ylabel('Temperature (degrees F)')
+14. end
+        % ---> File: Listing_15_05.m
+    % Listing 15.05 Removing the power line from the sky
+ 1. p = imread('Witney.jpg');
+ 2. [rows, cols, clrs] = size(p);
+ 3. x = 1:cols;
+ 4. sky = p;
+ 5. for row = 1:700
+ 6.     for color = 1:3
+ 7.         cv = double(p(row, :, color));
+ 8.         coef = polyfit(x, cv, 2);
+ 9.         ncr = polyval(coef, x);
+10.         sky(row,:,color) = uint8(ncr);
+11.     end
+12. end
+13. image(sky)
+14. imwrite(sky, 'sky.jpg');
+        % ---> File: Listing_15_06.m
+    % Listing 15.05 Trapezoidal integration
+ 1. function K = trapezoid( v, a, b )
+    % usage: K = trapezoid(v, a, b )
+ 2. K = (b-a) * (v(1) + v(end) + ...
+ 3.       2*sum(v(2:end-1))) / (2*(length(v) - 1) );
+ 4. 
+        % ---> File: Listing_15_07.m
+    % Listing 15.07 Simpson's rule integration
+ 1. function K = simpson( v, a, b )
+    % usage: K = simpson(v, a, b )
+ 2. K = (b-a) * (v(1) + v(end) + ...
+ 3.          4*sum(v(2:2:end-1)) + ...
+ 4.          2*sum(v(3:2:end-2)) ) / (3*(length(v) - 1) );
+        % ---> File: Listing_15_08.m
+    % Listing 15.08 Integrating rocket velocity
+ 1. v =[ 0.0 15.1 25.1 13.7 22.2 41.7 ...
+ 2.     39.8 54.8 57.6 62.6 61.6 63.9 69.6 ...
+ 3.     76.2 86.7 101.2 99.8 112.2 111.0 ...
+ 4.     116.8 122.6 127.7 143.4 131.3 143.0 ...
+ 5.     144.0 162.7 167.8 180.3 177.6 172.6 ...
+ 6.     166.6 173.1 173.3 176.0 178.5 ...
+ 7.     196.5 213.0 223.6 235.9 244.2 244.5 ...
+ 8.     259.4 271.4 270.5 294.5 297.6 ...
+ 9.     308.7 310.5 326.6 344.1 342.0 358.2 362.7 ];
+10. lv = length(v);
+11. dt = 0.2;
+12. t = (0:lv-1) * dt;
+13. h = dt * cumsum(v);
+14. plot(t, v)
+15. hold on
+16. plot(t, h/5,'k--')
+17. legend({'velocity', 'altitude/5' })
+18. title('velocity and altitude of a rocket')
+19. xlabel('time (sec)'); ylabel('v (m/s), h(m/5)')
+20. fprintf('cumsum height: %g\n', h(end) );
+21. fprintf('trapezoidal height: %g\n', ...
+22.        trapezoid(v, t(1), t(end) ));
+23. fprintf('Simpson''s Rule height: %g\n', ...
+24.          simpson(v, t(1), t(end) ));
+        % ---> File: Listing_15_09.m
+    % Listing 15.09 Differentiating a function
+ 1. x = -7:0.1:9;
+ 2. f = polyval([0.0333,-0.3,-1.3333,16,0,-187.2,0], x);
+ 3. plot(x, f)
+ 4. hold on
+ 5. df = diff(f)./diff(x);
+ 6. plot(x(2:end), df, 'g')
+ 7. plot(x(1:end-1), df, 'r')
+ 8. xm = (x(2:end)+x(2:end)) / 2
+ 9. plot(xm, df, 'c')
+10. grid on
+11. legend({'f(x)', 'forward', 'backward', 'central'})
+        % ---> File: Listing_15_10.m
+    % Listing 15.10 modifying sound amplitude
+ 1. figure
+ 2. plot(snd)
+ 3. hold on
+ 4. incr = 1000;
+ 5. at = 1;
+ 6. samples = [];
+ 7. tm = [];
+ 8. while at < (N - incr)
+ 9.    val = max(snd(at:at+incr-1));
+10.    samples = [samples val];
+11.    tm = [tm at+incr/2];
+12.    at = at + incr;
+13. end
+14. plot(tm, samples,'r*')
+15. coeff = polyfit(tm, samples, 8);
+16. samp = polyval(coeff, tm);
+17. plot(tm, samp, 'c')
+18. amult = polyval(coeff, 1:length(f));
+19. f = f .* amult;
+20. sf = f ./ max(f);
+21. sound(sf, Fs)
+        % ---> File: Listing_16_01.m
+    % Listing 16.01 The insertion sort function
+ 1. function b = insertionsort(a)
+    % This function sorts a column vector,
+    % using the insertion sort algorithm
+ 2.     b = []; i = 1; sz = length(a);
+ 3.     while i <= sz
+ 4.         b = insert(b, a(i,1) );
+ 5.         i = i + 1;
+ 6.     end
+ 7. end
+ 8. function a = insert(a, v)
+    % insert the value v into column vector a
+ 9.     i = 1; sz = length(a); done = false;
+10.     while i <= sz
+11.         if lt(v, a(i,1))
+12.             done = true;
+13.             a = [a(1:i-1); v; a(i:end)];
+14.             break;
+15.         end
+16.         i = i + 1;
+17.     end
+18.     if ~done
+19.         a(sz+1, 1) = v;
+20.     end
+21. end
+        % ---> File: Listing_16_02.m
+    % Listing 16.02 Bubble sort
+ 1. function bubblesort()
+    % This function sorts the column array b in place,
+    % using the bubble sort algorithm
+ 2.     global b
+ 3.     N = length(b);
+ 4.     right = N-1;
+ 5.     for in = 1:(N-1)
+ 6.         for jn = 1:right
+ 7.             if gt(b(jn), b(jn+1))
+ 8.                 tmp = b(jn); % swap b(jn) with b(jn+1)
+ 9.                 b(jn) = b(jn+1);
+10.                 b(jn+1) = tmp;
+11.             end
+12.         end
+13.         right = right - 1;
+14.     end
+15. end
+        % ---> File: Listing_16_03.m
+    % Listing 16.03 Quick sort
+ 1. function a = quicksort(a, from, to)
+    % This function sorts a column array,
+    % using the quick sort algorithm
+ 2.     if from < to
+ 3.         [a p] = partition(a, from, to);
+ 4.         a = quicksort(a, from, p);
+ 5.         a = quicksort(a, p + 1, to);
+ 6.     end
+ 7. end
+ 8. function [a lower] = partition(a, from, to)
+    % This function partitions a column array
+ 9.     pivot = a(from); i = from - 1; j = to + 1;
+10.     while i < j
+11.         i = i + 1;
+12.         while lt(a(i), pivot)
+13.             i = i + 1;
+14.         end
+15.         j = j - 1;
+16.         while gt(a(j), pivot)
+17.             j = j - 1;
+18.         end
+19.         if (i < j)
+20.             temp = a(i); % this section swaps
+21.             a(i) = a(j); % a(i) with a(j)
+22.             a(j) = temp;
+23.         end
+24.     end
+25.     lower = j;
+26. end
+27. 
+        % ---> File: Listing_16_04.m
+    % Listing 16.04 Quick sort in place
+ 1. function quicksortip(from, to)
+    % This function sorts a column array,
+    % using the quick sort algorithm in place
+ 2.     if from < to
+ 3.         p = partition(from, to);
+ 4.         quicksortip(from, p);
+ 5.         quicksortip(p + 1, to);
+ 6.     end
+ 7. end
+ 8. function lower = partition(from, to)
+ 9.     global b
+10.     pivot = b(from); i = from - 1; j = to + 1;
+11.     while i < j
+12.         i = i + 1;
+13.         while lt(b(i), pivot)
+14.             i = i + 1;
+15.         end
+16.         j = j - 1;
+17.         while gt(b(j), pivot)
+18.             j = j - 1;
+19.         end
+20.         if (i
+21.             temp = b(i); % this section swaps
+22.             b(i) = b(j); % b(i) with b(j)
+23.             b(j) = temp;
+24.         end
+25.     end
+26.     lower = j;
+27. end
+        % ---> File: Listing_16_05.m
+    % Listing 16.05 Merge sort
+ 1. function b = mergesort(a)
+    % This function sorts a column array,
+    % using the merge sort algorithm
+ 2.     b = a; sz = length(a);
+ 3.     if sz > 1
+ 4.         szb2 = floor(sz / 2);
+ 5.         first = mergesort(a(1 : szb2));
+ 6.         second = mergesort(a(szb2+1 : sz));
+ 7.         b = merge(first, second);
+ 8.     end
+ 9. end
+10. function b = merge(first, second)
+    % Merges two sorted arrays
+11.     i1 = 1; i2 = 1; out = 1;
+        % as long as neither i1 nor i2 past the end,
+        % move the smaller element into a
+12.     while (i1 <= length(first)) & (i2 <= length(second))
+13.         if lt(first(i1), second(i2))
+14.             b(out,1) = first(i1); i1 = i1 + 1;
+15.         else
+16.             b(out,1) = second(i2); i2 = i2 + 1;
+17.         end
+18.         out = out + 1;
+19.     end
+        % copy any remaining entries of the first array
+20.     while i1 <= length(first)
+21.         b(out,1) = first(i1); i1 = i1 + 1; out = out + 1;
+22.     end
+        % copy any remaining entries of the second array
+23.     while i2 <= length(second)
+24.         b(out,1) = second(i2); i2 = i2 + 1; out = out + 1;
+25.     end
+26. end
+        % ---> File: Listing_16_06.m
+    % Listing 16.06 Updated world data analysis
+ 1. function doit
+ 2.     worldData = buildData('World_data.xls');
+ 3.     n = 20;
+ 4.     bestn = findBestn(worldData, n);
+ 5.     fprintf('best %d countries are:\n', n)
+ 6.     for best = bestn(end:-1:1)
+ 7.         fprintf('%s\n', worldData(best).name)
+ 8.     end
+ 9. end
+10. function bestn = findBestn(worldData, n)
+    % find the indices of the n best countries
+    % according to the criterion in the function fold
+    % we first map world data to add the field growth
+11.     for ndx = 1:length(worldData)
+12.         cntry = worldData(ndx);
+13.         worldData(ndx).growth = fold(cntry);
+14.     end
+        % now, sort on this criterion
+15.     values = [worldData.growth];
+16.     [junk order] = sort(values);
+        % filter these to keep the best 10
+17.     bestn = order(end-n+1:end);
+18. end
+19. function ans = fold(st)
+    % s1 is the rate of growth of population
+20.     pop = st.pop(~isnan(st.pop));
+21.     yr = st.year(~isnan(st.pop));
+22.     s1 = slope(yr, pop)/mean(pop);
+        % s2 is the rate of growth of the GDP
+23.     gdp = st.gdp(~isnan(st.gdp));
+24.     yr = st.year(~isnan(st.gdp));
+25.     s2 = slope(yr, gdp)/mean(gdp);
+        % Measure of merit is how much faster
+        % the gdp grows than the population
+26.     ans = s2 - s1;
+27. end
+28. function sl = slope(x, y)
+    % Estimate the slope of a curve
+29.     if length(x) == 0 || x(end) == x(1)
+30.         error('bad data')
+31.     else
+32.         coef = polyfit(x, y, 1);
+33.         sl = coef(1);
+34.     end
+35. end
+        % ---> File: Listing_17_01.m
+    % Listing 17.01 Enqueue and dequeue functions
+ 1. function q = qEnq(q, data)
+        % enqueue onto a queue
+ 2.     q = [q {data}];
+ 3. end
+ 4. function [q ans] = qDeq(q)
+        % dequeue
+ 5.     ans = q{1};
+ 6.     q = q(2:end);
+ 7. end
+        % ---> File: Listing_17_02.m
+    % Listing 17.02 Comparing two objects
+ 1. function ans = is_before(a, b)
+    % comparing two objects
+ 2.     acl = class(a);
+ 3.     ans = false;
+ 4.     if isa(b, acl)
+ 5.         switch acl
+ 6.             case 'double'
+ 7.                 ans = a < b;
+ 8.             case 'struct'
+ 9.                 if isfield(a, 'key')
+10.                     ans = a.key < b.key;
+11.                 elseif isfield(a, 'dod')
+12.                     ans = age(a) < age(b);
+13.                 else
+14.                     error('comparing unknown structures')
+15.                 end
+16.             otherwise
+17.                 error(['can’t compare ' acl 's'])
+18.         end
+19.     end
+20. end
+        % ---> File: Listing_17_03.m
+    % Listing 17.03 Priority queue enqueue function
+ 1. function pq = pqEnq(pq, item)
+    % enqueue in order to a queue
+ 2.     in = 1;
+ 3.     at = length(pq)+1;
+ 4.     while in <= length(pq)
+ 5.         if is_before(item, pq{in})
+ 6.             at = in;
+ 7.             break;
+ 8.         end
+ 9.         in = in + 1;
+10.     end
+11.     pq = [pq(1:at-1) {item} pq(at:end)];
+12. end
+        % ---> File: Listing_17_04.m
+    % Listing 17.04 Converting a cell array to a string
+ 1. function str = CAToString(ca)
+        % Traverse a cell array to make a string
+ 2.     str = '';
+ 3.     for in = 1:length(ca)
+ 4.         str = [str toString(ca{in}) 13];
+ 5.     end
+ 6. end
+        % ---> File: Listing_17_05.m
+    % Listing 17.05 Converting any object to a string
+ 1. function str = toString(item)
+    % turn any object into its string representation
+ 2.     if isa(item, 'char')
+ 3.         str = ['''' item ''''];
+ 4.     elseif isa(item, 'double')
+ 5.         if length(item) == 1
+ 6.             str = sprintf('%g', item );
+ 7.         else
+ 8.             str = '[';
+ 9.             for in = 1:length(item)
+10.                 str = [str ...
+11.                     sprintf(' %g', item(in) ) ];
+12.             end
+13.             str = [str ' ]'];
+14.         end
+15.     elseif isa(item, 'struct')
+16.         if isfield(item, 'name')
+17.             str = item.name;
+18.         else
+19.             nms = fieldnames(item);
+20.             str = [];
+21.             for in = 1:length(nms)
+22.                 nm = nms{in};
+23.                 str = [str nm ': ' ...
+24.                     toString(item.(nm)) 13];
+25.             end
+26.         end
+27.     else
+28.         str = 'unknown data';
+29.     end
+30. end
+        % ---> File: Listing_17_06.m
+    % Listing 17.06 Testing the queues
+ 1. q = [];
+ 2. for ix = 1:10
+ 3.     q = qEnq(q, ix);
+ 4. end
+ 5. CAToString(q)
+ 6. [q ans] = qDeq(q);
+ 7. fprintf('dequeue -> %d leaving \n%s\n', ...
+ 8.     ans, CAToString(q) );
+ 9. fprintf('peek at queue -> %d leaving \n%s\n', ...
+10.     q{1}, CAToString(q) );
+11. pq = [];
+12. for ix = 1:10
+13.     value = floor(100*rand);
+14.     fprintf(' %g:', value );
+15.     pq = pqEnq(pq, value );
+16. end
+17. fprintf('\npriority queue is \n%s\n', ...
+18.     CAToString(pq) );
+        % ---> File: Listing_17_07.m
+    % Listing 17.07 Constructing a simple graph
+    % edge weights
+ 1. cost = [2 2 2 2 2 3 3 3 3 1 2 1 3];
+    % edge directions
+ 2. dir = [2 2 2 2 2 2 2 2 2 2 2 2 2];
+    % connectivity
+ 3. node = [ 1  2  3  4  5; ... % edges from A
+ 4.          1  6  7  0  0; ... % edges from B
+ 5.          2  7  8  0  0; ... % edges from C
+ 6.          3  8  9  0  0; ... % edges from D
+ 7.          4 11 13  9  0; ... % edges from E
+ 8.          5  6 10  0  0; ... % edges from F
+ 9.         10 11 12  0  0; ... % edges from G
+10.         12 13  0  0  0];    % edges from H
+    % coordinates
+11. coord = [ 5 6; ... % A
+12.           3 9; ... % B
+13.           1 6; ... % C
+14.           3 1; ... % D
+15.           6 2; ... % E
+16.           6 8; ... % F
+17.           9 7; ... % G
+18.           10 2]; % H
+19. A = grAdjacency( node, cost, dir )
+        % ---> File: Listing_17_07.m.backup
+    % Listing 17.07 Constructing a simple graph
+    % edge weights
+ 1. cost = [2 2 2 2 2 3 3 3 3 1 2 1 3];
+    % edge directions
+ 2. dir = [2 2 2 2 2 2 2 2 2 2 2 2 2];
+    % connectivity
+ 3. node = [ 1 2 3 4 5; ... % edges from A
+ 4.         1 6 7 0 0; ... % edges from B
+ 5.     2 7 8 0 0; ... % edges from C
+ 6.     3 8 9 0 0; ... % edges from D
+ 7.     4 11 13 9 0; ... % edges from E
+ 8.     5 6 10 0 0; ... % edges from F
+ 9.     10 11 12 0 0; ... % edges from G
+10.     12 13 0 0 0]; % edges from H
+    % coordinates
+11. coord = [ 5 6; ... % A
+12.           3 9; ... % B
+13.           1 6; ... % C
+14.           3 1; ... % D
+15.           6 2; ... % E
+16.           6 8; ... % F
+17.           9 7; ... % G
+18.           10 2]; % H
+19. A = grAdjacency( node, cost, dir )
+        % ---> File: Listing_17_08.m
+    % Listing 17.08 Creating an adjacency matrix
+ 1. function A = grAdjacency( node, cost, dir )
+    % compute an adjacency matrix.
+    % it should contain the weight from one
+    % node to another (0 if the nodes
+    % are not connected)
+ 2.     [m cols] = size(node);
+ 3.     n = length(cost);
+ 4.     k = 0;
+        % iterate across the edges
+        % finding the nodes at each end of the edge
+ 5.     for is = 1:n
+ 6.         iv = 0;
+ 7.         for ir = 1:m
+ 8.             for ic = 1:cols
+ 9.                 if node(ir, ic) == is
+10.                     iv = iv + 1;
+11.                     if iv > 2
+12.                         error('bad intersection matrix');
+13.                     end
+14.                     ij(iv) = ir;
+15.                 end
+16.             end
+17.         end
+18.         if iv ~= 2
+19.             error(sprintf('didn’t find both ends of edge %d', is));
+20.         end
+21.         t = cost(is);
+22.         if dir(is) ~= -1
+23.             k = k + 1;
+24.             ip(k) = ij(1); jp(k) = ij(2); tp(k) = t;
+25.         end
+26.         if dir(is) ~= 1
+27.             k = k + 1;
+28.             ip(k) = ij(2); jp(k) = ij(1); tp(k) = t;
+29.         end
+30.     end
+31.     A = sparse( ip, jp, tp );
+32. end
+        % ---> File: Listing_17_09.m
+    % Listing 17.09 Breadth-first graph traversal
+ 1. makeGraph
+    % Constructs an adjacency matrix
+ 2. start = 5;
+    % start is a node number (in this case, 'E')
+    % Create a queue and
+    % enqueue a path containing home
+ 3. q = qEnq([], start);
+    % initialize the visited list
+ 4. visited = start;
+    % initialize the result
+ 5. fprintf('trace: ')
+    % While the queue is not empty
+ 6. while ~isempty(q)
+        % Dequeue a path
+ 7.     [q thisNode] = qDeq(q);
+        % Traverse the children of this node
+ 8.     fprintf('%s - ', char('A'+thisNode-1) );
+ 9.     children = find(A(thisNode,:) ~= 0);
+10.     for aChild = children
+            % If the child is not on the path
+11.         if ~any(aChild == visited)
+                % Enqueue the new path
+12.             q = qEnq(q, aChild);
+                % add to the visited list
+13.             visited = [visited aChild];
+14.         end % if ~any(eachchild == current)
+15.     end % for eachchild = children
+16. end % while q not empty
+17. fprintf('\n');
+18. 
+        % ---> File: Listing_17_10.m
+    % Listing 17.10 Prim's Algorithm to compute a MST
+ 1. makeGraph
+ 2. A = grAdjacency( node, cost, dir )
+ 3. start = 1;
+ 4. gplot(A, coord, 'ro-')
+ 5. hold on
+ 6. for index = 1:length(coord)
+ 7.      str = char('A' + index - 1);
+ 8.      text(coord(index,1) + 0.2, ...
+ 9.           coord(index,2) + 0.3, str);
+10. end
+11. axis([0 11 0 10]); axis off; hold on
+12. N = start;
+13. running = true;
+14. result = sparse([0]);
+15. while running
+       % find the smallest edge 
+16.    best = 10000;
+17.    running = false;
+18.    for ndx = 1:length(N)
+19.         node = N(ndx);
+20.         next = find(A(node,:) > 0);
+21.         for nxt = 1:length(next)
+22.             nxtn = next(nxt);
+23.             if ~any(N == nxtn)
+24.                 running = true;
+25.                 if A(node, nxtn) < best
+26.                     best = A(node, nxtn);
+27.                     from = node;
+28.                     to = nxtn;
+29.                 end
+30.             end
+31.         end
+32.    end
+33.    if running
+34.        N = [N to];
+35.        result(from, to) = 1;
+36.    end
+37. end
+38. gplot(result, coord, 'gx--')
+        % ---> File: Listing_17_11.m
+    % Listing 17.11 Breadth-first graph search
+ 1. function D = grBFS(A, home, target)
+ 2.     q = qEnq([], home);
+ 3.     while ~isempty(q)
+ 4.         [q current] = qDeq(q);
+ 5.         if current(end) == target % success exit
+ 6.             D = sparse([0]);
+ 7.             for ans = 1:length(current)-1
+ 8.                 D(current(ans), current(ans+1)) = 1;
+ 9.             end
+10.             return; % exit the function
+11.         end % if current == target
+12.         thisNode = current(end);
+13.         children = find(A(thisNode,:) ~= 0);
+14.         for thisChild = children
+15.             if ~any(thisChild == current)
+16.                 q = qEnq(q, [current thisChild]);
+17.             end % if ~any(thisChild == current)
+18.         end % for thisChild = children
+19.     end % while q not empty
+        % if we reach here we never found a path
+20.     D = [];
+21. end
+        % ---> File: Listing_17_12.m
+    % Listing 17.12 Helper functions for Dijkstra's algorithm
+ 1. function ret = Path(nodes, len)
+    % Path constructor
+ 2.     ret.nodes = nodes;
+ 3.     ret.key = len;
+ 4. end
+ 5. function ret = pthGetLast(apath) 
+    % Returns number of last node on a path
+ 6.     ret = apath.nodes(end);
+ 7. end 
+        % ---> File: Listing_17_13.m
+    % Listing 17.13 Code for Dijkstra's algorithm
+ 1. function D = grDijkstra(A, home, target)
+ 2.     pq = pqEnq([], Path(home, 0));
+ 3.     while ~isempty(pq)
+ 4.         [pq current] = qDeq(pq);
+ 5.         if pthGetLast(current) == target
+ 6.             D = sparse(0);
+ 7.             answer = current.nodes;
+ 8.             for ans = 1:length(answer)-1
+ 9.                 D(answer(ans), answer(ans+1)) = 1;
+10.             end
+11.             return;
+12.         end % if last(current) == target
+13.         endnode = pthGetLast(current);
+14.         children = A(endnode,:);
+15.         children = find(children ~= 0);
+16.         for achild = children
+17.             len = A(endnode, achild);
+18.             if ~any(achild == current.nodes)
+19.                 clone = Path( [clone.nodes achild] ...
+20.                     current.key + len;
+21.                 pq = pqEnq(pq, clone);
+22.             end % if ~any child == current.nodes
+23.         end % for achild = children
+24.     end % if pq not empty
+        % If we reach here we never found a path
+25.     D = [];
+26. end
+        % ---> File: Listing_17_14.m
+    % Listing 17.14 Code for A* algorithm
+ 1. function D = A_Star(A, home, target, coord)
+        % initial path
+ 2.     current = home;
+ 3.     visited = home;
+ 4.     while current(end) ~= target
+ 5.         thisNode = current(end);
+            % get possible paths from here
+ 6.         children = find(A(thisNode,:) ~= 0);
+ 7.         best = inf;
+ 8.         node = -1;  % no node seleected yet
+ 9.         for thisChild = children
+10.             if ~any(thisChild == visited)
+11.                 edgeCost = A(thisNode, thisChild);
+12.                 estimate = dist(thisChild, target, coord);
+13.                 cost = edgeCost + estimate;
+14.                 if cost < best 
+15.                     best = cost;
+16.                     node = thisChild;
+17.                 end
+18.             end % if ~any(thisChild == current)
+19.         end % for thisChild = children
+20.         if node == -1
+                % dead end -> back up one
+21.             current = current(1:end-1);
+22.             if length(current == 0) 
+23.                 error('path failed')
+24.             end
+25.         else
+26.             current = [current node];
+27.             visited = [visited node]; % 
+28.         end
+29.     end
+30.     D = sparse([0]);
+31.     for it = 1:length(current)-1
+32.         D(current(it), current(it+1)) = 1;
+33.     end
+34. end
+35. function res = dist(a, b, coord) 
+36.     from = coord(a,:);
+37.     to = coord(b,:);
+38.     res = sqrt((from(1)-to(1)).^2 + (from(2)-to(2)).^2);
+39. end
+        % ---> File: Listing_17_15.m
+    %   Listing 17.15 Testing graph search algorithms
+ 1. makeGraph;   % call script to make the graph:
+ 2. start = 1;
+ 3. while start > 0
+ 4.     gplot(A, coord, 'ro-')
+ 5.     hold on
+ 6.     for index = 1:length(coord)
+ 7.         str = char('A' + index - 1);
+ 8.         text(coord(index,1) + 0.2, ...
+ 9.             coord(index,2) + 0.3, str);
+10.     end
+11.     axis([0 11 0 10]); axis off; hold on
+12.     ch = input('Starting node: ','s');
+13.     start = ch - 'A' + 1;
+14.     if start > 0
+15.         ch = input('Target node: ','s');
+16.         target = ch - 'A' + 1;
+17.         disp('original graph'); pause
+18.         D = grBFS( A, start, target);
+19.         gplot(D, coord, 'go-')
+20.         disp('BFS result'); pause
+21.         D = grDijkstra( A, start, target);
+22.         gplot(D, coord, 'bo-')
+23.         disp('Optimal result'); pause
+24.         D = A_Star( A, start, target, coord);
+25.         gplot(D, coord, 'm^-')
+26.         disp('A* result'); pause
+27.         hold off
+28.     end
+29. end

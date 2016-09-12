@@ -1,0 +1,28 @@
+Test Case ID:TD 10.6
+Created By:Ryan Vazquez 11-23-2015
+Run By:Ryan Vazquez 11-23-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  - Chapter contain correct chapter info
+  
+Related Requirements
+  - N/A
+  
+Prerequisites
+  -Popye opens
+  -Popye contains chapter 
+  
+Test Procedures
+1.Open Popye
+2.Read Chapter info
+
+Test Data/Test Notes
+CH 12 still copy of CH 11
+
+Expected Result
+ - Chapters contain correct info
+ 
+Actual Result
+ - Chapters contain redundant info

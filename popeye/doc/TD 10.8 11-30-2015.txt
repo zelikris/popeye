@@ -1,0 +1,30 @@
+Test Case ID:TD 10.7
+Created By:Katie Bentley 11-29-2015
+Run By:Katie Bentley 11-30-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  - Chapters Contain all sections 
+  
+Related Requirements
+  - N/A
+  
+Prerequisites
+  -Popye opens
+  -Popye chapters opens
+  
+Test Procedures
+1.Open Popye
+2.Read Chapter info
+3.Check to make sure each section in the index is in the text of each chapter 
+
+Test Data/Test Notes
+3.5 does not exist 
+4.3 to 4.8 does not exit 
+
+Expected Result
+ - Chapters contain everything in their index 
+ 
+Actual Result
+ - Chapters are missing some sections 

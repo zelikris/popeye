@@ -1,0 +1,22 @@
+Test Case ID:TD10.3
+Created By: Ryan Vazquez
+Run By: Ryan Vazquez 11-28-2015
+Requirement: 10.3
+Test Result: FAILED
+
+Test Case Summary 
+  - Figures should properly display on page
+  
+Prerequisites
+  - 
+Test Procedures 
+  - Go to chapter
+  - See if figures display properly
+
+Test Data/Test Notes 
+  - FAILED
+
+Expected Result 
+  - Figures display properly
+Actual Result
+  - CH 11 Figure 4,7,11 removed. Figure 7 shows image 6.

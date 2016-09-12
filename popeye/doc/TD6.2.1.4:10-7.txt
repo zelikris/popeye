@@ -1,0 +1,22 @@
+Test Case ID:TD6.2.1.4
+Created By:
+Run By: Ryan Vazquez 10/7
+Requirement: 6.2.1.4
+Test Result: PASSED
+
+Test Case Summary 
+  - Library team will save plots as a pdf or png file 
+Related Requirements
+  - 6.2.1
+Prerequisites
+  -
+Test Procedures 
+  - Execute plot
+  - Check save location (web_server/listing_exec_app/static/plot/)
+  - Did executed plot save as pdf/png?
+Test Data/Test Notes 
+  - PASSED
+Expected Result 
+  - plots save as pdf/png
+Actual Result
+  - plots save as pdf

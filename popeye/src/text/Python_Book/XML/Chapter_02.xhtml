@@ -1,0 +1,170 @@
+<chapter>
+<number>2</number>
+<outline>
+2.1  Programming Language Background
+2.1.1  Abstraction
+2.1.2   Algorithms
+2.1.3   Programming Paradigms
+2.2  Basic Data Manipulation
+2.2.1   Starting and Stopping MATLAB
+2.2.2  Assigning Values to Variables
+2.2.3  Data Typing
+2.2.4  Classes and Objects
+2.3  MATLAB User Interface
+2.3.1  Command Window
+2.3.2  Command History
+2.3.3  Workspace Window
+2.3.4  Current Directory Window
+2.3.5   Variable Editor
+2.3.6  Figure Window
+2.3.7  Editor Window
+2.4  Scripts
+2.4.1   Text Files
+2.4.2  Creating Scripts
+2.4.3  The Current Directory
+2.4.4  Running Scripts
+2.4.5   Punctuating Scripts
+2.4.6  Debugging Scripts
+2.5  Engineering Example - Spacecraft Launch
+</outline>
+<objectives>
+This chapter introduces you to some of the fundamentals of computing that apply to all programming languages, and specifically to the programming environment used for program development. The fundamentals of programming include:
+<bullets>
+How to use abstraction to think in a general way about a collection of data and procedural steps<br>
+How to describe the solution of a problem as an algorithm<br>
+The three paradigms of computing and the position of MATLAB in that spectrum<br>
+Three aspects of the apparently simple task of assigning a value to a variable
+</bullets>
+As you study the MATLAB user interface, you will understand:
+<bullets>
+How to use the Command window to explore single commands interactively and how to recall earlier commands to be repeated or changed<br>
+Where to examine the variables and files created in MATLAB<br>
+How to view data created in MATLAB<br>
+How MATLAB presents graphical data in separate windows<br>
+How to create scripts to solve simple arithmetic problems
+</bullets>
+</objectives>
+<intro>
+The name MATLAB is a contraction of Matrix Laboratory. It was develop engineers to create, manipulate, and visualize matrices - rectangular arrays numerical values. At its most basic level, MATLAB can perform the same functions as your scientific calculator, but it has expanded far beyond its original capabilities. It now provides an interactive system and programming language for many including financial analysis as well as general scientific and technical computation.
+The following are the fundamental components of MATLAB:
+<bullets>
+A computing system that accepts one instruction at a time in text form and implements the logic of that instruction. Instructions must conform to a specific syntax and vocabulary, which will be the topic of Chapters 3-9.<br>
+A large library of modules that provide high-level capabilities for processing data. These modules will be the major topic of Chapters 10-17.<br>
+A graphical user interface (GUI) that lets users assemble and implement programs that solve specific problems. 
+The rest of this chapter will describe the basic behavior of these windows.
+
+MATLAB offers a number of advantages to users over conventional, compiled languages like C++, Java, or FORTRAN:
+<bullets>
+Because MATLAB programs are interpreted rather than compiled, the process of producing a working solution can be much quicker than with compiled languages.<br>
+MATLAB excels at numerical calculations, especially matrix calculations.<br>
+MATLAB has built-in graphics capabilities that produce professional-looking images for reports.
+</bullets>
+However, the very attributes that make MATLAB convenient for a user to develop quick solutions to certain problems make it unsuitable for other kinds of projects. For example:
+<bullets>
+MATLAB does not work well for large computing projects where a number of developers share coding responsibilities.<br>
+Professional GUIs and windowing applications (like the MATLAB system itself) are best written in a compiled language.
+</bullets>
+</intro>
+
+<heading 2.1> Programming Language Background </heading>
+<text>
+Before learning about concepts in computing, you need to understand the background of programming languages. This section discusses the following aspects of programming languages: abstraction, algorithms, programming paradigms, and three fundamental concepts of programming-assigning values to variables, data typing, and the difference between classes and objects.
+</text>
+
+<heading 2.1.1> Abstraction </heading>
+<text>
+For the purpose of this text, we will define abstraction as "expressing a quality apart from a particular implementation." We use the concept of abstraction in everyday conversation without thinking about it:
+"To convert from degrees Celsius to Kelvin, you add 273 to the temperature."
+"He drove home from the office."
+The first is an example of data abstraction. "The temperature" could mean a single reading from the thermometer hanging outside the window or a table of temperature readings for the month of August. The specifics are unimportant; the phrase captures all you need to know.<br>
+The second example is actually much more complex-an example of multiple levels of procedural abstraction. To a businessperson taking the same route home every night, "drive home" is all that is required to understand the idea. To a competent driver unfamiliar with the route, the next level of abstraction might be necessary-turn right out of the parking lot, left onto Main Street, and so on. For instructions to guide a future robotic commuter vehicle, an incredibly fine-grained level of abstraction will be required. Everything taken for granted in the higher level abstractions will need to be meticulously spelled out for the robotic vehicle-start the engine, accelerate the vehicle, look out for traffic, keep in the lane, find the turn, steer the vehicle, control the speed, observe and obey all signs, and so on.
+</text>
+
+<heading 2.1.2> Algorithms </heading>
+<text>
+Chapter 1 defined problem solving as the ability to isolate sub-problems that seem simple and appropriate to solve, and then assemble the solutions to these sub-problems. The solutions to each of these sub- problems would be expressed as an algorithm, which is a sequence of instructions for solving a sub-problem. The process of solving each sub- problem and assembling the solutions to form the solution to the whole problem would also be expressed as an algorithm at a higher level of abstraction.<br>
+The level of abstraction needed to describe an algorithm varies greatly with the mechanism available. For example, describing the algorithm (recipe) for baking cookies might take the following forms:
+<bullets>
+To your grandmother, who has been baking cookies for the last 50 years, it might be "Please bake some cookies."<br>
+To others it might be "Buy a cookie mix and follow the directions."<br>
+To a young person learning to cook from scratch, the algorithm might include an intricate series of instructions for measuring, sifting, and combining ingredients; setting the oven temperature and preheating the oven; forming the cookies and putting them on the cookie sheet; and so on.
+</bullets>
+In programming terms, algorithms are frequently expressed first conceptually at a high level of abstraction, as demonstrated in Section 1.5. The solutions to each sub-problem would then be expressed at lower and lower levels of abstraction until the description is sufficient to write programs that solve each sub-problem, thereby contributing the pieces that, when assembled, solve the whole problem.
+</text>
+
+<heading 2.1.3>Programming Paradigms</heading>
+<text>
+From the Greek word paradeigma - "to show alongside" - the American Heritage Dictionary defines a paradigm as "a set of assumptions, concepts, values, and practices that constitutes a way of viewing reality for the community that shares them, especially in an intellectual discipline." So a programming paradigm becomes a codified set of practices allowing the community of computing professionals to frame their ideas. This section considers three radically different paradigms: functional programming, procedural programming, and object-oriented programming.<br>
+Functional programming is typically associated with languages like Lisp and Forth, in which every programming operation is actually implemented as a function call with no side effects (changes of state of the program surroundings) permitted or implemented in the language. Without side effects, a programming solution can be mathematically proven to be correct-an enormous advantage. Except for the discussion of recursion, this paradigm will not be mentioned again.<br>
+Procedural programming is typical of languages like FORTRAN, C, and MATLAB, where the basic programs or sub-programs are sequences of operations on data items that are generally accessible to all programs. Although side effects from sub-programs-such as changing the values of variables outside that sub-program-are considered poor practice, they are not prohibited by the language.<br>
+Object-oriented programming (OOP), typical of languages like C++, Ada, and Java, is a relatively new addition to the world of programming paradigms. It is characterized by the concept of encapsulating, or packaging, data items together with the methods or functions that manipulate those data items. In this paradigm, side effects are explicitly managed by controlling access to the data and methods in a particular grouping. The major theme in true OOP is that "everything is an object." You will see MATLAB exhibiting many traits of OOP as you work through this book, but you will not need to use this programming paradigm.
+</text>
+
+<heading 2.2> Basic Data Manipulation </heading>
+<text>
+In order to use MATLAB to demonstrate basic data manipulation, we begin with an exercise in starting and stopping the MATLAB system.
+</text>
+
+<heading 2.2.1> Starting and Stopping MATLAB </heading>
+<text>
+Exercise 2.1 shows you how to start and stop the MATLAB user interface. We will soon see the details of all the program's windows. For the moment, however, we will interact with MATLAB by typing instructions in the large Command window that occupies the left side of your screen.
+</text>
+<exercise 2.1 Starting and stopping MATLAB>
+If you have not installed MATLAB on your computer yet, follow the directions that came with your license for performing and testing the installation.
+To start MATLAB, double-click on its icon. In the Interactions window you should see the MATLAB prompt (>> ), which tells you that the MATLAB system is waiting for you to enter a command.
+To exit MATLAB, type exit at the MATLAB prompt, choose the menu option File > Exit, or click the close icon (x) in the upper-right corner of the screen.
+</exercise>
+
+<heading 2.2.2>Assigning Values to Variables</heading>
+<text>
+The concept of assigning values to variables is the first challenge facing novice programmers. The difficulty arises because many programming languages (including MATLAB) present this simple concept in a syntax that is very similar to conventional algebra, but with significantly different meaning. Consider, for example, the following algebraic expression:
+z = x + y
+In normal algebra, this is a two-way relationship that is an identity for the duration of the problem. If you knew the values of z and x, you could derive the value of y with no further analysis. To a programmer, however, this statement has a different meaning. It means that you want to sum the values given to the variables x and y, and store the result in a variable called z. If either x or y is unknown at the time of executing this statement, an error ensues. In particular, this relationship is true only for this statement. The relationship can be revoked in the next instruction, which might be:
+z = 4*x - y
+In algebra, this pair of statements collectively constrains the values of x, y, and z. In programming, the only significance is that the programmer decided to calculate the current value of z differently. A few computer languages are sensitive to this dilemma and use a different symbol for assigning values to a variable. For example, in Pascal or Ada, an instruction to assign the value z = x + y would be written as follows:
+z := x + y
+The ":=" operator clearly indicates that this is an assignment statement, not an algebraic identity.
+Variable names: In general, variable names may contain any combination of uppercase and lowercase alphabetic letters, numbers, and the special character '_' (underscore). The underscore character is frequently used to represent a space in a variable name because spaces are not allowed. However, variable names may not begin with a numeric character, and even though the names may be hundreds of characters long, the  first  64  characters  must  be unique. Exercise 2.2 demonstrates the assignment of values to variables.
+</text>
+<style 2.1>
+<enum>
+Some early versions of the FORTRAN and Basic languages severely restricted the number of characters you could use for variable names. It is no longer necessary to program as if you were still in the "bad old days." Choose names for variables that describe their content. For example, a variable used to store the velocity of an object should be named velocity_in_feet_per_second rather than v.<br>
+Since the space character is not permitted in variable names, there are two conventions for joining multiple words together to make a single variable name. One uses the underscore character to separate the words (file_size), and the other capitalizes the first letter of additional words (fileSize).You should choose one convention and be consistent with it. You cannot use a hyphen to concatenate words-MATLAB treats the name file-size as the arithmetic operation subtracting the value of the variable size from the value of the variable file.</enum>
+</style>
+
+<exercise 2.2 Assigning variables>
+When you start MATLAB, you should see the prompt <code>>> </code> in the Interactions window. This is your invitation to type something. Text that you should type will be shown like this throughout this book:
+<code>>> radius = 49 </code>
+Note that all entries in the Interactions window terminate with the Enter key. The system response will be shown like this:
+<code>radius =
+49
+>></code>
+This response indicates that the value 49 has been stored in a variable named radius. To retrieve the value of radius, you just type its name and press Enter.
+<code>>> radius
+ans =
+49</code>
+This response shows that the value 49 has been retrieved. Since you didn't specify where to put this result, it was stored in a default variable named <code>ans</code>.
+</exercise>
+
+</chapter>
+<templates>
+
+<heading A.B>text</heading>
+<text>
+
+</text>
+
+<heading A.B.C>text</heading>
+
+<text>
+
+</text>
+
+<style A.B>
+
+</style>
+
+<exercise A.B title>
+
+</exercise>
+</templates>

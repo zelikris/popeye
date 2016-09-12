@@ -1,0 +1,31 @@
+Test Case ID:TD 10.4
+Created By:Katie Bentley 11-02-2015
+Run By:Ryan Vazquez 11-18-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  -Check the formating of Titles 
+  
+Related Requirements
+ N/A
+  
+Prerequisites
+  -Popye opens
+  -Popye plots 
+  
+Test Procedures
+1.Open Popye
+2. Look at formatting
+
+Test Data/Test Notes
+Chapters out of order.
+Chapter 3 has no decription.
+Chapter 4 title out of order (description before title).
+Chapter 5 has no sub-menu when clicked. All listed in main
+
+Expected Result
+ -All titles display properly formated 
+ 
+Actual Result
+ -Formating/spacing of title on chapters was incorrect

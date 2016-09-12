@@ -1,0 +1,25 @@
+Test Case ID:TD4.1.3
+Created By:
+Run By: Ryan Vazquez 10/7
+Requirement: 4.1.1
+Test Result: PASSED
+
+Test Case Summary 
+  - Ability to select and open chaper and chapter sections.
+Related Requirements
+  - 
+Prerequisites
+  - 4.1.1
+Test Procedures 
+  - Check out Popye and test program
+  - Load and display a plain text file containing a listing
+  - select  a chapter from interface and load chapter. 
+  - Select a chapter section from interface and jump to that section in view.
+
+Test Data/Test Notes 
+  - PASSED
+
+Expected Result 
+  - Ability to select and open chaper and chapter sections.
+Actual Result
+  - Ability to select and open chaper and chapter sections.

@@ -1,0 +1,31 @@
+Test Case ID:TD5.2.1
+Created By:
+Run By: Ryan Vazquez 9/30
+Requirement:
+Test Result: PASSED
+
+Test Case Summary 
+  - Provide the ability to open a text window 
+Related Requirements
+  - 5.2.1.1: web server will respond to http get requests with html built around 
+content 
+  - 5.2.1.2: html must dynamically resize to support different devices 
+Prerequisites
+  - Popye Opens
+Test Procedures 
+  - Open POPYE book
+  - Does window open?
+  - Is window properly displayed?
+  - Does window scale properly to different sizes?
+
+Test Data/Test Notes 
+  PASSED
+
+Expected Result 
+  - ability to open a text window 
+  - web server will respond to http get requests with html built around 
+content
+  - html must dynamically resize to support different devices 
+
+Actual Result
+  PASSED

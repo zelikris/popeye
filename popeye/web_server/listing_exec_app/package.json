@@ -1,0 +1,20 @@
+{
+    "name": "listing_exec_app",
+    "version": "0.2.0",
+    "description": "app for executing code listings for an interactive python (anaconda) textbook)",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.gatech.edu/apujari6/POPYE"
+    },
+    "author": "Joe Rossi and Viktor Schlueter",
+    "license": "ISC",
+    "dependencies": {
+        "express":"4.13.3",
+        "body-parser":"1.14.1",
+        "uuid":"2.0.1"
+    }
+}

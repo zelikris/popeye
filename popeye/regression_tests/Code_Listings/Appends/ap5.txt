@@ -1,0 +1,25 @@
+
+import shutil
+filexx = open('plotxx5p.txt', 'w')
+for i in range(0, len(y1)):
+    st = "  %0.8f\n" % y1[i]
+    filexx.write(st)
+filexx.close()
+
+fileyy = open('plotyy5p.txt', 'w')
+for i in range(0, len(y2)):
+    st = "  %0.8f\n" % y2[i]
+    fileyy.write(st)
+fileyy.close()
+
+filezz = open('plotzz5p.txt', 'w')
+for i in range(0, len(y3)):
+    st = "  %0.8f\n" % y3[i]
+    filezz.write(st)
+filezz.close()
+shutil.copy('plotxx5p.txt', 'Code_Listings/Data')
+shutil.copy('plotyy5p.txt', 'Code_Listings/Data')
+shutil.copy('plotzz5p.txt', 'Code_Listings/Data')
+os.remove('plotxx5p.txt')
+os.remove('plotyy5p.txt')
+os.remove('plotzz5p.txt')

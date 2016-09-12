@@ -1,0 +1,27 @@
+import shutil
+filexx = open('plotxx9p.txt', 'w')
+for i in range(0, len(xx)):
+    for j in range(0, len(xx[0])):
+        st = " %0.8f\n" % xx[i][j]
+        filexx.write(st)
+filexx.close()
+
+fileyy = open('plotyy9p.txt', 'w')
+for i in range(0, len(yy)):
+    for j in range(0, len(yy[0])):
+        st = " %0.8f\n" % yy[i][j]
+        fileyy.write(st)
+fileyy.close()
+
+filezz = open('plotzz9p.txt', 'w')
+for i in range(0, len(zz)):
+    for j in range(0, len(zz[0])):
+        st = " %0.8f\n" % zz[i][j]
+        filezz.write(st)
+filezz.close()
+shutil.copy('plotxx9p.txt', 'Code_Listings/Data')
+shutil.copy('plotyy9p.txt', 'Code_Listings/Data')
+shutil.copy('plotzz9p.txt', 'Code_Listings/Data')
+os.remove('plotxx9p.txt')
+os.remove('plotyy9p.txt')
+os.remove('plotzz9p.txt')

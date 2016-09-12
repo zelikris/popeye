@@ -1,0 +1,3 @@
+<old>print</old>	<new>TEXT_TEAM</new>
+<old>text</old>	<new>VOILA</new>
+<old>\ba\b</old>	<new>HELLO!</new>

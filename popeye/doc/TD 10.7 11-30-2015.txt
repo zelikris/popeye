@@ -1,0 +1,35 @@
+Test Case ID:TD 10.7
+Created By:Ryan Vazquez 11-23-2015
+Run By: Katie Bentley 11-30-2015
+Requirement:ID N/A
+Test Result:FAILED
+
+Test Case Summary
+  - Figures show up properly
+  
+Related Requirements
+  - N/A
+  
+Prerequisites
+  -Popye opens
+  -Popye chapters open
+  - figures viewable
+  
+Test Procedures
+1.Open Popye
+2.Read Chapter info
+
+Test Data/Test Notes
+CH 5 Fig 1 reshowing CH 5 
+CH 4 and CH 3 have simular problems 
+
+Expected Result
+ - Chapters contain correct figures
+ 
+Actual Result
+ - Chapters contain wrong figures
+ 
+
+    API Training Shop Blog About 
+
+    © 2015 GitHub, Inc. Help Support 

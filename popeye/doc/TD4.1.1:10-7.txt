@@ -1,0 +1,23 @@
+Test Case ID:TD4.1.1
+Created By:
+Run By: Ryan Vazquez 10/7
+Requirement: 4.1.1
+Test Result: PASSED
+
+Test Case Summary 
+  - Open a plain text window and display formatted text and figures.
+Related Requirements
+  - 
+Prerequisites
+  - 
+Test Procedures 
+  - Check out Popye and test program 
+  - Load and display a plain text file containing figures
+
+Test Data/Test Notes 
+  - PASSED
+
+Expected Result 
+  - Open a plain text window and display formatted text and figures.
+Actual Result
+  - Open a plain text window and display formatted text and figures.

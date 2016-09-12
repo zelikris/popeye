@@ -1,0 +1,20 @@
+Test Case ID:TD6.2.1.1
+Created By:
+Run By: Ryan Vazquez 10/7
+Requirement: 6.2.1.1
+Test Result: PASSED
+
+Test Case Summary 
+  - Library team will implement the Matplotlib python library for plotting and numerical calculations
+Related Requirements
+  - 6.2.1
+Prerequisites
+  -
+Test Procedures 
+  - Do functions that require Matplotlib execute?
+Test Data/Test Notes 
+  - PASSED
+Expected Result 
+  - implement the Matplotlib python library for plotting and numerical calculations
+Actual Result
+  - implemented the Matplotlib python library for plotting and numerical calculations

@@ -1,0 +1,31 @@
+Test Case ID: TD6.2.1.1
+Created By: Dana Bazazeh
+Run By: Dana Bazazeh 10/08/15
+Requirement: 6.2.1.1
+Test Result: PASSED
+
+Test Case Summary 
+- Test if python library allows plotting of graphs and numerical calculations 
+
+Related Requirements
+  - 
+Prerequisites
+  -
+Test Procedures 
+  - open interactive page with plotting feature that allows input
+  - enter plot function
+  - inspect output and compare to expected result
+  
+Test Data/Test Notes
+  - Pulled file  from main branch on 10/8
+  - Ran server
+  - went to subchapter 11.1
+  - executed plot and subplot function
+  - checked terminal for result
+  - terminal successfully imports matlab functions from library
+ 	 
+
+Expected Result 
+  - Library contains correct functions to plot and calculate numerics
+Actual Result
+  - functions were imported from from matplotlib.pyplot as shown by terminal and match needed functions

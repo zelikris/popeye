@@ -1,0 +1,84 @@
+<!--  THE EDITOR SNIPPET BEGINS -->
+<style type="text/css" media="screen">
+
+#editor {
+    margin: 0;
+    margin-bottom: 24px;
+    position: relative;
+    top: 30px;
+    height : 100px;
+}
+
+    #results {
+        margin: 0;
+        margin-bottom: 50px;
+        position: relative;
+        top: 30px;
+        height: 100px;
+    }
+
+    #send {
+        position:relative;
+        margin-bottom: 80px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!--<pre id="editor"></pre>-->
+<div id="editor">purgeryUrsula</div>
+
+<div id="results"> --- no output yet ---</div>
+
+<!-- load ace -->
+<script src="../../edit-window/src/ace.js"></script>
+
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+
+    editor.getSession().setTabSize(4);
+    editor.setHighlightActiveLine(true);
+
+    editor.getSession().setMode("ace/mode/python");
+
+    <!------------New Editor--------------------------------------->
+    var results = ace.edit("results");
+    results.setTheme("ace/theme/twilight");
+    results.setReadOnly(true);
+    results.getSession().setUseWrapMode(true);
+
+    $(document).ready(function(){
+        editor_id = editor.container.id;
+        origTextDict[editor_id] = editor.getValue();
+
+        importsDict[editor_id] = `<imports-go-here>`;
+
+        var heightUpdateFunction = function() {
+
+            // http://stackoverflow.com/questions/11584061/
+            var newHeight =
+                editor.getSession().getScreenLength()
+                    * editor.renderer.lineHeight
+                    + editor.renderer.scrollBar.getWidth() + 50;
+
+            $('#editor').height(newHeight.toString() + "px");
+            //alert(newHeight);
+
+            // This call is required for the editor to fix all of
+            // its inner structure for adapting to a change in size
+            editor.resize();
+        };
+
+        // Set initial size to match initial content
+        heightUpdateFunction();
+
+        // Whenever a change happens inside the ACE editor, update
+        // the size again
+        editor.getSession().on('change', heightUpdateFunction);
+    })
+
+</script>
+
+<input id="send" type="button" value="Execute" onclick="Send(editor, results);">
+<input id="revert" type="button" value="Revert" onclick="Revert(editor);">

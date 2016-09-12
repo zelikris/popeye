@@ -1,0 +1,22 @@
+Test Case ID:TD4.1.2
+Created By: Ryan Vazquez  9/9/15
+Run By: Ryan Vazquez 10/2
+Requirement: 4.1.2
+Test Result: PASSED
+
+Test Case Summary 
+  - Test if editable text window opens
+Related Requirements
+  - 4.1.1
+Prerequisites
+  - 4.1.1
+Test Procedures 
+  - open Popye
+  - open text window
+Test Data/Test Notes 
+  - PASSED
+Expected Result 
+  - editable text window opens
+Actual Result
+  - editable text window opens
+

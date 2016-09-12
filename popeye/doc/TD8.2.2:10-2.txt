@@ -1,0 +1,22 @@
+Test Case ID:TD8.2.2
+Created By: Dustin Bayne  9/9/15
+Run By: Ryan Vazquez 10/2
+Requirement: 8.2.2
+Test Result: FAILED
+
+Test Case Summary 
+  - test if the html created from xml files contain desired content
+Related Requirements
+  - 8.2.1
+Prerequisites
+  - 8.2.1
+Test Procedures 
+  - open html for a section of book
+  - open expected output for that section 	 
+  - compare the two	 	
+Test Data/Test Notes 
+  - there is strange spacing between parts of some paragraphs
+Expected Result 
+  - The expected output should match the actual output.
+Actual Result
+  - FAILED

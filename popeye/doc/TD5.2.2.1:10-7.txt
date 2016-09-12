@@ -1,0 +1,21 @@
+Test Case ID:TD5.2.2.1
+Created By:
+Run By: Ryan Vazquez 10/7
+Requirement: 5.2.2.1
+Test Result: PASSED
+
+Test Case Summary 
+  - listings will include option for opening editor window 
+Related Requirements
+  - 
+Prerequisites
+  - 5.2.1
+Test Procedures 
+  - Find a code listing in the content.
+  - Execute interaction to bring up the editor 
+Test Data/Test Notes 
+  - PASSED
+Expected Result 
+  - listings will include option for opening editor window 
+Actual Result
+  - listings will include option for opening editor window 

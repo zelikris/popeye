@@ -1,0 +1,29 @@
+Test Case ID:TD4.2.2
+Created By: Ryan Vazquez  9/9/15
+Run By: Katie Bentley 10/01/15
+Requirement: 4.2.2
+Test Result: Passed 
+
+Test Case Summary 
+  - Test if Popye can execute text
+Related Requirements
+  - 4.2.1
+Prerequisites
+  - Interactive text opens and is editable
+Test Procedures 
+  - open interactive text
+  - execute text and check output
+  - IF SUCCEEDS edit text
+  - execute new text and check new outputs
+
+Test Data/Test Notes 
+  - pulled from infrastructure on 9/30 at beginning of class
+  - ran server and went to http://127.0.0.1:8000/static/docs/index.html
+  - went to ch 11
+  - ran execute
+  - Nothing showed up in the output box but earlier error was fixed 
+
+Expected Result 
+  - text executes and outputs proper values
+Actual Result
+  - Nothing showed up in the output box but earlier error was fixed 

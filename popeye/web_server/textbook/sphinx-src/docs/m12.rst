@@ -1,0 +1,13 @@
+=============================
+**CHAPTER 12**
+=============================
+
+**Animation Demo**
+
+Chapter Objectives
+==================
+
+<popeye-listing>c12f3</popeye-listing>
+
+<popeye-image>c12f2</popeye-image>
+
